@@ -83,7 +83,7 @@ namespace classEnemy
             {
 
             }
-            else
+            else pouf
             {
                 //joue l'animation d'attack
             }*/
