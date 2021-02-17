@@ -51,10 +51,12 @@ namespace classEnemy
         }
         public void WalkTo(Vector3 position)
         {
+            //joue l'animation de marche
             Vector3.MoveTowards(position,target.transform.position, moveSpeed * Time.deltaTime);
         }
         public void WalkAroundTarget()
         {
+           // joue l'animation de marche
            positionOffset.Set(Mathf.Cos(120) * fightingRange,0,Mathf.Sin(120) * fightingRange );
            WalkTo(target.transform.position + positionOffset);
         }
@@ -77,7 +79,14 @@ namespace classEnemy
         }
         public override void attack()
         {
-            throw new System.NotImplementedException();
+            /*if (Time.deltaTime+attack_delay)
+            {
+
+            }
+            else
+            {
+                //joue l'animation d'attack
+            }*/
         }
     }
 }
