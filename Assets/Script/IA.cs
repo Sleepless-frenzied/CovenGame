@@ -9,7 +9,7 @@ namespace classEnemy
     {
         // Start is called before the first frame update
      
-        public Troll unTroll = new Troll();
+        //public Troll unTroll = new Troll();
 
         /* void Start()
         {
