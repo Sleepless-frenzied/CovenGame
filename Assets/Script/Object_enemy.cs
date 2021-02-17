@@ -81,7 +81,6 @@ namespace classEnemy
         {
             /*if (Time.deltaTime+attack_delay)
             {
-
             }
             else pouf
             {
