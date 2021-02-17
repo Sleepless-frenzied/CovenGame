@@ -13,7 +13,8 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     {
         //Create Room -> Erreur si la room existe
         //JoinOrCreateRoom -> Join la room si déjà existente
-
+        if (!PhotonNetwork.IsConnected)
+            return;
         RoomOptions options = new RoomOptions();
         options.IsVisible = true;
         while(_roomName.text.Trim(' ') == "")
