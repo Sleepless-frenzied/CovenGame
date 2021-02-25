@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class OptionMenu : MonoBehaviour
 {
@@ -9,8 +10,23 @@ public class OptionMenu : MonoBehaviour
 
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
+
+    public TMP_Text TextVolume;
+    public TMP_Text TextSFX;
+
+    public TMP_Dropdown Quality_Dropdown;
+    
+    public Toggle Toggle_Fullscreen;
     void Start()
     {
+        //FULLSCREEN MANAGER
+        Toggle_Fullscreen.isOn = Screen.fullScreen;
+        
+        //QUALITY MANAGER
+        Quality_Dropdown.value = QualitySettings.GetQualityLevel();
+        
+        
+        //RESOLUTION MANAGER
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
@@ -27,72 +43,53 @@ public class OptionMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        
+        
+        // VOLUME MANAGER
+        float tmp;
+        float tmp2;
+        audioMixer.GetFloat("MainVolume", out tmp);
+        audioMixer.GetFloat("SFX", out tmp2);
+        
+        TextVolume.text = "Volume " + (int) (100+tmp);
+        TextSFX.text = "SFX " + (int) (100+tmp2);
+        
+
     }
 
+    //DROPDOWN RESOLUTION
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
-    /*public Resolution[] resolutions;
-    public TMP_Dropdown ResolutionDropdown;
-
-    public void SetResolution()
+    } 
+    
+    //TOGGLE FULLSCREEN
+    public void SetFullscreen(bool isFullscreen)
     {
-        switch (ResolutionDropdown)
-        {
-            case 0:
-                Screen.SetResolution(640,360,true);
-                break;
-            case 1:
-                Screen.SetResolution(1920,1080,true);
-                break;
-        }
-    }*/
-    /*private void Start()
-    {
-        resolutions = Screen.resolutions;
-        ResolutionDropdown.ClearOptions();
-        List<string> options = new List<string>();
-        int currentResolutionIndex = 0;
-        for (int i = 0; i < resolutions.Length; i++ )
-        {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
-
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height)
-            {
-                currentResolutionIndex = i;
-            }
-        }
-        ResolutionDropdown.AddOptions(options);
-        ResolutionDropdown.value = currentResolutionIndex;
-        ResolutionDropdown.RefreshShownValue();
+        Screen.fullScreen = isFullscreen;
     }
 
-    public void SetResolution(int resolutionIndex)
-    {
-        revolution 
-        Screen.SetResolution(resolution
-    }*/
-
-    public void SetVolumeMaster(float volume)
-    {
-        audioMixer.SetFloat("MainVolume", volume);
-    }
-    public void SetVolumeSFX(float volume)
-    {
-        audioMixer.SetFloat("SFX", volume);
-    }
-
+    //DROPDOWN QUALITY
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
     }
 
-    public void SetFullscreen(bool isFullscreen)
+    
+    //SLIDER VOLUME MASTER
+    public void SetVolumeMaster(float volume)
     {
-        Screen.fullScreen = isFullscreen;
+        audioMixer.SetFloat("MainVolume", volume);
+        TextVolume.text = "Volume " + (int) (100+volume);
     }
+    
+    
+    //SLIDER VOLUME SFX
+    public void SetVolumeSFX(float volume)
+    {
+        audioMixer.SetFloat("SFX", volume);
+        TextSFX.text = "SFX " + (int) (100 + volume);
+    }
+    
 }
