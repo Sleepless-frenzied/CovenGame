@@ -17,10 +17,6 @@ public class CreateRoom : MonoBehaviourPunCallbacks
             return;
         RoomOptions options = new RoomOptions();
         options.IsVisible = true;
-        while(_roomName.text.Trim(' ') == "")
-        {
-
-        }
         PhotonNetwork.JoinOrCreateRoom(_roomName.text, options, TypedLobby.Default);
     }
 
