@@ -11,8 +11,18 @@ public class AudioManager : MonoBehaviour
     
     public AudioMixerGroup Master;
     public AudioMixerGroup SFX;
+
+    public static AudioManager instance;
     void Awake()
     {
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+        }
+        
+        DontDestroyOnLoad(gameObject);
         foreach (var s in sound)
         {
             s.source =gameObject.AddComponent<AudioSource>();
