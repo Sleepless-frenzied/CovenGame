@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using Photon.Realtime;
 using Photon.Pun;
 
@@ -19,6 +20,8 @@ public class TestConnect : MonoBehaviourPunCallbacks
     {
         print("connected");
         print(PhotonNetwork.LocalPlayer.NickName); // affiche le username depuis le serveur distant
+
+        PhotonNetwork.JoinLobby();
     }
 
     public override void OnDisconnected(DisconnectCause cause) // retourne les causes de déconncetions
