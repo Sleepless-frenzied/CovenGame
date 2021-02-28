@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Photon.Realtime;
+using System;
 
+[Serializable]
 public class RoomListing : MonoBehaviour
 {
     [SerializeField]
