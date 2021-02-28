@@ -18,26 +18,28 @@ public class IA_couroutine : MonoBehaviour
         ((enemy_couroutine)troll).SetAttackRange(1); 
         ((enemy_couroutine)troll).SetMoveSpeed(5); 
         ((enemy_couroutine)troll).SetAttackDelay(3); 
-        ((enemy_couroutine)troll).SetAttackDammage(10); 
+        ((enemy_couroutine)troll).SetAttackDammage(0); 
+        troll.StartCoroutine("CheckEntity");
     } 
     // Update is called once per frame 
     void Update() 
     { 
         if (Time.time>troll.GetAllow_action()) 
         { 
-            if (Vector3.Distance(troll.transform.position,troll.GetTarget().transform.position)>troll.GetFightingRange()) 
+            float Distance = Vector3.Distance(troll.transform.position,troll.GetTarget().transform.position);
+            if (troll.GetTargetDetection() && Distance>troll.GetFightingRange()) 
             { 
                 troll.chase(); 
             } 
             else 
             { 
-                if (Vector3.Distance(troll.transform.position,troll.GetTarget().transform.position)<=troll.GetAttackRange()) 
+                if (Distance<=troll.GetAttackRange()) 
                 { 
                     troll.attack(); 
                 } 
                 else 
                 { 
-                    if (troll.GetFight()) 
+                    if (troll.GetFight() && Distance<=troll.GetFightingRange()) 
                     { 
                         troll.StartCoroutine("fighting"); 
                     } 

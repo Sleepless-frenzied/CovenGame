@@ -6,6 +6,9 @@ namespace classEnemyC
 { 
     public abstract class enemy_couroutine : MonoBehaviour 
     { 
+        protected bool TargetDetected= false;
+        protected bool AlliesDetected= false;
+        protected GameObject ally;
         protected Animator animator; 
         protected GameObject target; 
         protected int ViewDistance; 
@@ -26,6 +29,7 @@ namespace classEnemyC
         public abstract void attack(); 
         public abstract void chase(); 
         public abstract IEnumerator fighting(); 
+        public abstract IEnumerator CheckEntity();
         public void ApplyDamage() 
         { 
             PlayerStat script =target.GetComponent<PlayerStat>(); 
@@ -38,6 +42,18 @@ namespace classEnemyC
         public void SetAttackDelay(int attack_delay) 
         { 
              this.attack_delay=attack_delay; 
+        } 
+        public bool GetTargetDetection() 
+        { 
+            return TargetDetected; 
+        } 
+        public GameObject GetAlly() 
+        { 
+            return ally; 
+        } 
+        public void SetMoveSpeed(GameObject ally) 
+        { 
+             this.ally=ally; 
         } 
         public int GetMoveSpeed() 
         { 

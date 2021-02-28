@@ -43,13 +43,6 @@ namespace classEnemyC
             //joue l'animation regeneration 
             //health = maxHealth 
         } 
-        IEnumerator wait() 
-        { 
-            while (transform.position.y>target.transform.position.y) 
-            { 
-                yield return new WaitForSeconds(1);  
-            } 
-        } 
         void OnCollisionEnter(Collision collision) 
         { 
             if (collision.collider.tag=="canJumpAbove") 
@@ -102,12 +95,24 @@ namespace classEnemyC
                     yield return new WaitForFixedUpdate(); 
                 }   
                          break; 
-                default :for (int i = 0; i < 10; i++) 
-                { 
-                    WalkAroundTarget(); 
-                    yield return new WaitForFixedUpdate(); 
-                }  
-                         break;        
+                default :
+                if (AlliesDetected)
+                {
+                    for (int i = 0; i < 20; i++)
+                    {
+                        GroupeFight();
+                        yield return new WaitForFixedUpdate();
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 10; i++) 
+                    { 
+                         WalkAroundTarget(); 
+                         yield return new WaitForFixedUpdate(); 
+                    } 
+                }
+                break;        
             } 
             fight = true; 
             yield return new WaitForEndOfFrame(); 
@@ -121,5 +126,52 @@ namespace classEnemyC
             } 
             attackAllowed = Time.time + attack_delay; 
         } 
+
+        public override IEnumerator CheckEntity()
+        {
+            while(true)
+            {
+                Collider[] hitColliders = Physics.OverlapSphere(transform.position,fightingRange*6);
+                foreach (var hitCollider in hitColliders)
+                {
+                    if (hitCollider.gameObject == target)
+                    {
+                        TargetDetected = true;
+                    }
+                    else
+                    {
+                        if (hitCollider.tag=="mob")
+                        {
+                            AlliesDetected=true;
+                            ally=hitCollider.gameObject;
+                            if (TargetDetected)
+                            {
+                                CallAllies();
+                            }
+                        }
+                    }
+                }
+                yield return new WaitForSeconds(1);
+            }
+        }
+        public void CallAllies()
+        {
+            Couroutinetroll script =ally.GetComponent<Couroutinetroll>(); 
+            script.TargetDetected = true; 
+        }
+        public void GroupeFight()
+        {
+            if (gameObject.transform.position.x>ally.transform.position.x)
+            {
+                 Vector3 Targetposition = new Vector3 (target.transform.position.x, transform.position.y, target.transform.position.z); 
+                transform.LookAt (Targetposition); 
+                Vector3 axis = new Vector3(0,-3,0); 
+                transform.RotateAround(target.transform.position,axis, 0.3F);
+            }
+            else
+            {
+                WalkAroundTarget();
+            }
+        }
     } 
 }
