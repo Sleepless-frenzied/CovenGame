@@ -10,16 +10,30 @@ public class RoomListingMenu : MonoBehaviourPunCallbacks
     private Transform _content;
 
     [SerializeField]
-    private RoomListing _roomlisting;
+    private GameObject _roomlisting;
 
+    private List<GameObject> _listings = new List<GameObject>();
 
-    private List<RoomListing> _listings = new List<RoomListing>();
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        foreach (GameObject list in _listings)
+        {
+            Debug.Log("destroy the room", this);
+            _listings.Remove(list);
+            Destroy(list);
+        }
+
         foreach (RoomInfo info in roomList)
         {
-            if (info.RemovedFromList) // removed from rooms list
+            Debug.Log("GET THE ROOM",this);
+            GameObject room = Instantiate(_roomlisting, _content);
+            room.transform.SetParent(_content);
+            room.GetComponent<RoomListing>().SetRoomInfo(info);
+            _listings.Add(room);
+
+
+            /*if (info.RemovedFromList) // removed from rooms list
             {
                 int index = _listings.FindIndex(x => x.RoomInfo.Name == info.Name); // room name are unique donc on trouve la room
                 if (index != -1)
@@ -36,7 +50,7 @@ public class RoomListingMenu : MonoBehaviourPunCallbacks
                     listing.SetRoomInfo(info);
                     _listings.Add(listing);
                 }
-            }
+            }*/
         }
     }
 }
