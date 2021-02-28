@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Sleepless-project : Vault</title>
+  </head>
+  <body>  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand"><b>Sleepless</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            The game
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="Trailer_résumé.html">Trailer/résumé</a></li>
+            <li><a class="dropdown-item" href="page1.html">Accueil</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            notre équipe
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="Equipe.html">Présentation de l'équipe</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <button type="button" class="btn btn-danger" >Play now</button>
+  </div>
+</nav>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="image.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Création de la map x%</h5>
+        <p>Jolan : Pour que notre personnage évolue dans son aventure, il nous fallait un donjon. C’est pourquoi je me suis chargé de créer les Mapainsi que les environnements de jeu.<br> 
+          J'ai tout d’abord trouvé des textures et des modèles 3D qui correspondaient au style de Coven puis je les ai assemblé pour créer des "map test", puis une "salle extérieur"pour un futur boss à affronter.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="ProgressIA.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>IA</h5>
+        <p>Arthur : Le travail sur L'IA de nos enemis basiques est en bonne voie,<br> ses décision lorsqu'elle est seule sont completes et certaines décision de groupe sont implémenté.<br>
+        Elles possèdent aussi pour le moment un sytème de combat basique</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="Main-menu.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Création de l'UI, le menu</h5>
+        <p>Willy : Pour les menus, J'ai utilisé les éléments d’interface utilisateur proposés par Unity.<br>
+          Chaque boutons a une liaison vers un objet géré par "Menu Manager" qui contient un script avec diverses fonctions permettant de manager le menu.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="Multi-UI.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block" style="color:#000000">
+        <b><h5>L'aspect réseau, les rooms</h5>
+        <p>Yanis : Avec l'utilisation de photon j'ai pour notre multi-joueur dû implémenter un système de rooms.<br>
+        Pour le moment nos rooms nous permettent de :<br> — Lister les joueurs de la room <br>— Instancier des objets<br>— Autres actions situationnelles— <br>Synchroniser des joueurs et le status des ennemis</b></p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="card text-center bg-dark text-white" style="width:100%;">
+  <div class="card-body"> 
+    <h1 class="card-title">Sleepless team</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Yanis Yang | Jolan Ducluzeaud  |  Arthur Oldrati  |  Willy Somkhit</h6>
+  </div> 
+</div>
+ 
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
