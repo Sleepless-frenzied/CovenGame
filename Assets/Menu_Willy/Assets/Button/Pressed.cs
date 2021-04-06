@@ -39,9 +39,12 @@ public class Pressed : MonoBehaviour
         MultiButton.gameObject.SetActive(false);
     }
 
-    public void Play()
+    public void Solo()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        
+        SceneManager.LoadScene("MAP");
+        Scene apercu = SceneManager.GetActiveScene();
+        Debug.Log("Active Scene is '" + apercu.name + "'.");
     }
     public void OpenPage(string url)
     {

@@ -16,7 +16,7 @@ public class IA_couroutine : MonoBehaviour
         troll.SetTarget(Target); 
         troll.SetAnimator(animator); 
         ((enemy_couroutine)troll).SetAttackRange(1); 
-        ((enemy_couroutine)troll).SetMoveSpeed(5); 
+        ((enemy_couroutine)troll).SetMoveSpeed(3); 
         ((enemy_couroutine)troll).SetAttackDelay(3); 
         ((enemy_couroutine)troll).SetAttackDammage(0); 
         troll.StartCoroutine("CheckEntity");

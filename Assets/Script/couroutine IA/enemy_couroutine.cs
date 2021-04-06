@@ -19,7 +19,7 @@ namespace classEnemyC
         protected int attack_dammage; 
         protected int health; 
         protected bool isHiting; 
-        protected int KbForces; 
+        protected int KbForces=10; 
         protected int fightingRange=6; 
         protected float attackTime; 
         protected int gravity = 20; 
@@ -32,8 +32,8 @@ namespace classEnemyC
         public abstract IEnumerator CheckEntity();
         public void ApplyDamage() 
         { 
-            PlayerStat script =target.GetComponent<PlayerStat>(); 
-            script.TakeDamage(attack_dammage,KbForces); 
+            PlayerStat script =target.GetComponent<PlayerStat>();
+            //script.TakeDamage(attack_dammage,KbForces); 
         } 
         public void SetAttackDammage(int attack_dammage) 
         { 

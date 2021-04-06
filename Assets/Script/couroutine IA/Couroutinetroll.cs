@@ -47,14 +47,17 @@ namespace classEnemyC
         { 
             if (collision.collider.tag=="canJumpAbove") 
             { 
-                //jump animation 
-                this.gameObject.GetComponent<Rigidbody>().AddForce(0,10,0,ForceMode.Impulse); 
+                //jump animation
+                this.gameObject.GetComponent<Rigidbody>().AddForce(0,4.5F,0,ForceMode.Impulse); 
             } 
         } 
         void OnCollisionStay(Collision collision) 
-        { 
+        {
+           
+
             if (isHiting /*&& animation attack is true*/) 
             { 
+
                 if (collision.gameObject==target) 
                 { 
                     ApplyDamage(); 
