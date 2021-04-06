@@ -33231,14 +33231,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1846050324}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ba4849f4c890f44947978c76596fb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5517d5077c3dacb419b3d9c2c7124262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTarget: {fileID: 858252069}
-  rotateSpeed: 2
-  offsetDistance: 2
-  offsetHeight: 3
-  smoothing: 2
+  Player: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!81 &1846050326
 AudioListener:
   m_ObjectHideFlags: 0
