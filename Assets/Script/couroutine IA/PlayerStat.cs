@@ -8,7 +8,7 @@ public class PlayerStat : MonoBehaviour
     protected int damage; 
     protected int allow_attack; 
     protected int stability; 
-    protected int knockBack; 
+    protected int knockBack=10; 
     public int GetDamage() 
     { 
         return damage; 

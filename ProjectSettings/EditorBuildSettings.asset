@@ -54,4 +54,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Menu_Willy/Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Menu_Willy/Assets/Scenes/MAP.unity
+    guid: b752b1a6e6cf2164090c177568a23dea
   m_configObjects: {}
