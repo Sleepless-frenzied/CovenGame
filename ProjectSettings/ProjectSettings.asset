@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Sleepless
+  companyName: DefaultCompany
   productName: Coven
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 10, y: 10}
