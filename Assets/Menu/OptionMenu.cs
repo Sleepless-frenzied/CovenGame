@@ -17,6 +17,8 @@ public class OptionMenu : MonoBehaviour
     public TMP_Dropdown Quality_Dropdown;
     
     public Toggle Toggle_Fullscreen;
+
+    public Toggle Toggle_mute;
     void Start()
     {
         //FULLSCREEN MANAGER
@@ -91,5 +93,9 @@ public class OptionMenu : MonoBehaviour
         audioMixer.SetFloat("SFX", volume);
         TextSFX.text = "SFX " + (int) (100 + volume);
     }
-    
+
+    public void Mute()
+    {
+        AudioListener.pause = !AudioListener.pause;
+    }
 }
