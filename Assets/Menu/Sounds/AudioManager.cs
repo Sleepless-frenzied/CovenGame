@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using Object = System.Object;
 
 public class AudioManager : MonoBehaviour
 {
@@ -69,6 +70,11 @@ public class AudioManager : MonoBehaviour
         {
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
+        }
+
+        if (PauseMenu.GameIsPaused)
+        {
+            s.source.pitch *= .5f;
         }
         s.source.Play();
     }
