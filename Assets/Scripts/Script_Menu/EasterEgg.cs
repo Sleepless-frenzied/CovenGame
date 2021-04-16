@@ -12,16 +12,19 @@ public class EasterEgg : MonoBehaviour
     private int _index = 0;
     private bool _yeay = false;
     [FormerlySerializedAs("Secret")] public GameObject secret;
+    [FormerlySerializedAs("Secret")] public GameObject test;
 
-    void Update()
+    public void Update()
     {
         
         if (!_yeay)
         {
             if (_index == _code.Length)
             {
+                test.SetActive(false);
                 secret.SetActive(true);
                 _yeay = true;
+                _index = 0;
             }
             if (!Input.anyKeyDown) return;
             if (Input.GetKeyDown(_code[_index]))
@@ -33,5 +36,12 @@ public class EasterEgg : MonoBehaviour
                 _index = 0;
             }
         }
+    }
+
+    public void Reverse()
+    {
+        test.SetActive(true);
+        secret.SetActive(false); 
+        _yeay = false;
     }
 }

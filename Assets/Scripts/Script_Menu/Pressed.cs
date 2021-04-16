@@ -44,7 +44,6 @@ public class Pressed : MonoBehaviour
 
     public void Solo()
     {
-        
         SceneManager.LoadScene("MAP");
         Scene apercu = SceneManager.GetActiveScene();
         Debug.Log("Active Scene is '" + apercu.name + "'.");
