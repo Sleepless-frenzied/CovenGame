@@ -13,11 +13,14 @@ public class Pressed : MonoBehaviour
     public Animator MainButton;
     public Animator SoloButton;
     public Animator MultiButton;
+    private static readonly int Highlighted = Animator.StringToHash("Highlighted");
 
     private void Update()
     {
-        if (MainButton.GetBool("Highlighted") || SoloButton.GetBool("Highlighted") ||
-            MultiButton.GetBool("Highlighted"))
+        /*if (MainButton.GetBool("Highlighted") || SoloButton.GetBool("Highlighted") ||
+            MultiButton.GetBool("Highlighted"))*/
+        if (MainButton.GetBool(Highlighted) || SoloButton.GetBool(Highlighted) ||
+            MultiButton.GetBool(Highlighted))
         {
             Invoke("activate",0.5f);
         }
@@ -60,7 +63,9 @@ public class Pressed : MonoBehaviour
     {
         foreach (var Go in menus)
         {
+            Time.timeScale = (1f);
             Go.SetActive(Go.name==obj);
+            PauseMenu.GameIsPaused = false;
         }
     }
 
