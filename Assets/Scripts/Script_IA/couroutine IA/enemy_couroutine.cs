@@ -10,7 +10,8 @@ namespace classEnemyC
         protected bool AlliesDetected= false;
         protected GameObject ally;
         protected Animator animator; 
-        protected GameObject target; 
+        protected GameObject target;
+        protected GameObject weapon;  
         protected int ViewDistance; 
         protected int attackRange; 
         protected int moveSpeed; 
@@ -47,6 +48,10 @@ namespace classEnemyC
         { 
             return TargetDetected; 
         } 
+        public Animator Getanimator() 
+        { 
+            return animator; 
+        } 
         public GameObject GetAlly() 
         { 
             return ally; 
@@ -78,6 +83,10 @@ namespace classEnemyC
         public void SetTarget(GameObject Target) 
         { 
             target=Target; 
+        } 
+        public void SetWeapon(GameObject Weapon) 
+        { 
+            weapon=Weapon; 
         } 
         public GameObject GetTarget() 
         { 
