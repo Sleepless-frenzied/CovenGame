@@ -6,14 +6,13 @@ namespace classEnemyC
 { 
 public class IA_Albinos : MonoBehaviour 
 { 
-    public Animator animator; 
-    public GameObject Target; 
+    public Animator animator;  
     CapsuleCollider playerCollider; 
     IA_Albinos_code Albinos; 
     void Start() 
     { 
         Albinos = gameObject.AddComponent<IA_Albinos_code>(); 
-        Albinos.SetTarget(Target); 
+        Albinos.SetTarget(null); 
         Albinos.SetAnimator(animator); 
         ((enemy_couroutine)Albinos).SetAttackRange(0); 
         ((enemy_couroutine)Albinos).SetMoveSpeed(4); 
@@ -24,10 +23,10 @@ public class IA_Albinos : MonoBehaviour
     // Update is called once per frame 
     void Update() 
     { 
-        if (Time.time>Albinos.GetAllow_action()) 
+        if (Time.time>Albinos.GetAllow_action() && Albinos.GetTarget()!=null) 
         { 
             float Distance = Vector3.Distance(Albinos.transform.position,Albinos.GetTarget().transform.position);
-            if (Albinos.GetTargetDetection() && Distance>Albinos.GetFightingRange()) 
+            if (Distance>Albinos.GetFightingRange()) 
             { 
                 Albinos.chase(); 
             } 
@@ -41,9 +40,9 @@ public class IA_Albinos : MonoBehaviour
         } 
         else 
         { 
-            Vector3 Targetposition = new Vector3 (Target.transform.position.x, transform.position.y, Target.transform.position.z); 
+            Vector3 Targetposition = new Vector3 (Albinos.GetTarget().transform.position.x, transform.position.y, Albinos.GetTarget().transform.position.z); 
             transform.LookAt (Targetposition); 
-            transform.position=Vector3.MoveTowards(transform.position,Target.transform.position, 6*Time.deltaTime); 
+            transform.position=Vector3.MoveTowards(transform.position,Albinos.GetTarget().transform.position, 6*Time.deltaTime); 
         } 
     } 
 } 

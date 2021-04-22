@@ -123,9 +123,9 @@ namespace classEnemyC
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position,fightingRange*6);
                 foreach (var hitCollider in hitColliders)
                 {
-                    if (hitCollider.gameObject == target)
+                    if (hitCollider.gameObject.tag == "Player")
                     {
-                        TargetDetected = true;
+                        target = hitCollider.gameObject;
                     }
                     else
                     {
@@ -133,7 +133,7 @@ namespace classEnemyC
                         {
                             AlliesDetected=true;
                             ally=hitCollider.gameObject;
-                            if (TargetDetected)
+                            if (target!=null)
                             {
                                 CallAllies();
                             }
@@ -146,7 +146,7 @@ namespace classEnemyC
         public void CallAllies()
         {
             Couroutinetroll script =ally.GetComponent<Couroutinetroll>(); 
-            script.TargetDetected = true; 
+            script.target = target; 
         }
         public void GroupeFight()
         {

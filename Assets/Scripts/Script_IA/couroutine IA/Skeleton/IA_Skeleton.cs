@@ -7,14 +7,13 @@ namespace classEnemyC
 public class IA_Skeleton : MonoBehaviour 
 { 
     public Animator animator; 
-    public GameObject Target;
     public GameObject Weapon;
     CapsuleCollider playerCollider; 
     IA_Skeleton_code Skeleton; 
     void Start() 
     { 
         Skeleton = gameObject.AddComponent<IA_Skeleton_code>(); 
-        Skeleton.SetTarget(Target); 
+        Skeleton.SetTarget(null); 
         Skeleton.SetAnimator(animator);
         Skeleton.SetWeapon(Weapon);
         ((enemy_couroutine)Skeleton).SetAttackRange(1); 
@@ -28,9 +27,10 @@ public class IA_Skeleton : MonoBehaviour
     { 
         if (Time.time>Skeleton.GetAllow_action()) 
         { 
+            if (Skeleton.GetTarget()!=null)
+            {
             float Distance = Vector3.Distance(Skeleton.transform.position,Skeleton.GetTarget().transform.position);
-            //Debug.Log(Skeleton.GetTargetDetection());
-            if (Skeleton.GetTargetDetection() && Distance>Skeleton.GetFightingRange()) 
+            if (Distance>Skeleton.GetFightingRange()) 
             { 
                 Skeleton.chase(); 
             } 
@@ -47,13 +47,16 @@ public class IA_Skeleton : MonoBehaviour
                         Skeleton.StartCoroutine("fighting"); 
                     } 
                 }     
-            } 
+            } }
         } 
         else 
         { 
-            Vector3 Targetposition = new Vector3 (Target.transform.position.x, transform.position.y, Target.transform.position.z); 
-            transform.LookAt (Targetposition); 
-            transform.position=Vector3.MoveTowards(transform.position,Target.transform.position, 6*Time.deltaTime); 
+            if (Skeleton.GetTarget()!=null)
+            {
+                Vector3 Targetposition = new Vector3 (Skeleton.GetTarget().transform.position.x, transform.position.y, Skeleton.GetTarget().transform.position.z); 
+                transform.LookAt (Targetposition); 
+                transform.position=Vector3.MoveTowards(transform.position,Skeleton.GetTarget().transform.position, 6*Time.deltaTime); 
+            }
         }
     } 
 }

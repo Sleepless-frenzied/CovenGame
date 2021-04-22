@@ -77,9 +77,9 @@ namespace classEnemyC
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position,fightingRange*2);
                 foreach (var hitCollider in hitColliders)
                 {
-                    if (hitCollider.gameObject == target)
+                    if (hitCollider.gameObject.tag == "Player")
                     {
-                        TargetDetected = true;
+                        target = hitCollider.gameObject;
                     }
                 }
                 yield return new WaitForSeconds(1);
