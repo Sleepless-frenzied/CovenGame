@@ -1,4 +1,4 @@
-﻿using System.Collections; 
+using System.Collections; 
 using System.Collections.Generic; 
 using UnityEngine; 
  
@@ -6,11 +6,11 @@ namespace classEnemyC
 { 
     public abstract class enemy_couroutine : MonoBehaviour 
     { 
-        protected bool TargetDetected= false;
         protected bool AlliesDetected= false;
         protected GameObject ally;
         protected Animator animator; 
-        protected GameObject target; 
+        protected GameObject target;
+        protected GameObject weapon;  
         protected int ViewDistance; 
         protected int attackRange; 
         protected int moveSpeed; 
@@ -18,7 +18,6 @@ namespace classEnemyC
         protected int attack_delay; 
         protected int attack_dammage; 
         protected int health; 
-        protected bool isHiting; 
         protected int KbForces=10; 
         protected int fightingRange=6; 
         protected float attackTime; 
@@ -33,7 +32,8 @@ namespace classEnemyC
         public void ApplyDamage() 
         { 
             PlayerStat script =target.GetComponent<PlayerStat>();
-            //script.TakeDamage(attack_dammage,KbForces); 
+            script.TakeDamage(attack_dammage,KbForces);
+            script.SetHitFrom(gameObject);
         } 
         public void SetAttackDammage(int attack_dammage) 
         { 
@@ -43,9 +43,9 @@ namespace classEnemyC
         { 
              this.attack_delay=attack_delay; 
         } 
-        public bool GetTargetDetection() 
+        public Animator Getanimator() 
         { 
-            return TargetDetected; 
+            return animator; 
         } 
         public GameObject GetAlly() 
         { 
@@ -78,6 +78,10 @@ namespace classEnemyC
         public void SetTarget(GameObject Target) 
         { 
             target=Target; 
+        } 
+        public void SetWeapon(GameObject Weapon) 
+        { 
+            weapon=Weapon; 
         } 
         public GameObject GetTarget() 
         { 

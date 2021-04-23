@@ -51,20 +51,6 @@ namespace classEnemyC
                 this.gameObject.GetComponent<Rigidbody>().AddForce(0,4.5F,0,ForceMode.Impulse); 
             } 
         } 
-        void OnCollisionStay(Collision collision) 
-        {
-           
-
-            if (isHiting /*&& animation attack is true*/) 
-            { 
-
-                if (collision.gameObject==target) 
-                { 
-                    ApplyDamage(); 
-                    isHiting=false; 
-                } 
-            } 
-        } 
         public void WalkTo(Vector3 position) 
         { 
             bool isRunning = animator.GetBool("isWalking"); 
@@ -124,7 +110,7 @@ namespace classEnemyC
         { 
             if (Time.time > attackAllowed ) 
             { 
-                isHiting=true; 
+                
                 //joue l'animation d'attaque 
             } 
             attackAllowed = Time.time + attack_delay; 
@@ -137,9 +123,9 @@ namespace classEnemyC
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position,fightingRange*6);
                 foreach (var hitCollider in hitColliders)
                 {
-                    if (hitCollider.gameObject == target)
+                    if (hitCollider.gameObject.tag == "Player")
                     {
-                        TargetDetected = true;
+                        target = hitCollider.gameObject;
                     }
                     else
                     {
@@ -147,7 +133,7 @@ namespace classEnemyC
                         {
                             AlliesDetected=true;
                             ally=hitCollider.gameObject;
-                            if (TargetDetected)
+                            if (target!=null)
                             {
                                 CallAllies();
                             }
@@ -160,7 +146,7 @@ namespace classEnemyC
         public void CallAllies()
         {
             Couroutinetroll script =ally.GetComponent<Couroutinetroll>(); 
-            script.TargetDetected = true; 
+            script.target = target; 
         }
         public void GroupeFight()
         {
