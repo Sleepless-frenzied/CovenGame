@@ -16,6 +16,15 @@ public class EquipmentManager : MonoBehaviour
 
     #endregion
 
+
+
+    public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
+
+    public OnEquipmentChanged onEquipmentChanged;
+        
+    
+    
+
     private Inventory inventory;
     private Equipment[] currentEquipment;
 
@@ -37,11 +46,41 @@ public class EquipmentManager : MonoBehaviour
             inventory.Add(oldItem);
         }
 
+
+        if (onEquipmentChanged != null)
+        {
+            onEquipmentChanged.Invoke(newItem,oldItem);
+        }
         currentEquipment[slotIndex] = newItem;
     }
 
-    /*public void UnEquip(int slotIndex)
+    public void UnEquip(int slotIndex)
     {
-        if(cu)
-    }*/
+        if (currentEquipment[slotIndex] != null)
+        {
+            Equipment oldItem = currentEquipment[slotIndex];
+            inventory.Add(oldItem);
+
+            if (onEquipmentChanged != null)
+            {
+                onEquipmentChanged.Invoke(null,oldItem);
+            }
+            currentEquipment[slotIndex] = null;
+        }
+    }
+    public void UnEquipAll()
+    {
+        for (int i = 0; i < currentEquipment.Length; i++)
+        {
+            UnEquip(i);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            UnEquipAll();
+        }
+    }
 }
