@@ -17,6 +17,7 @@ public class Skeleton_Sword : MonoBehaviour
         IA_Skeleton_code script = holder.GetComponent<IA_Skeleton_code>();
         if (IsHiting && collision.gameObject == script.GetTarget())
         {
+            Debug.Log("hit");
             script.ApplyDamage();
             IsHiting = false;
         }
