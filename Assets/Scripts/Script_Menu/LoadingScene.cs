@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = System.Random;
-
 public class LoadingScene : MonoBehaviour
 {
     public GameObject LoadingScreen;
@@ -32,6 +31,6 @@ public class LoadingScene : MonoBehaviour
 
             yield return null;
         }
-        
+        yield return new WaitForSeconds(1500000);
     }
 }
