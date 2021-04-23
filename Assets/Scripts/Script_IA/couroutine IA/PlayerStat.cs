@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerStat : MonoBehaviour 
 { 
     protected GameObject HitFrom;
+    public GameObject Healthbar;
     protected int health=100; 
     protected int damage; 
     protected int allow_attack; 
@@ -29,7 +30,7 @@ public class PlayerStat : MonoBehaviour
         health-=dammage; 
         if (health<=0) 
         { 
-            //joue l'animation de mort 
+            //joue l'animation de mort ou qqchose
             gameObject.tag = "dead";
             enemy_couroutine script = HitFrom.GetComponent<enemy_couroutine>(); 
             script.SetTarget(null);
