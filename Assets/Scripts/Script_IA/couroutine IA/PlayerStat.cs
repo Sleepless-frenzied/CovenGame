@@ -1,10 +1,13 @@
-﻿using System.Collections; 
+using System.Collections; 
 using System.Collections.Generic; 
 using UnityEngine; 
  
+ namespace classEnemyC 
+{ 
 public class PlayerStat : MonoBehaviour 
 { 
-    protected int health=1000000; 
+    protected GameObject HitFrom;
+    protected int health=100; 
     protected int damage; 
     protected int allow_attack; 
     protected int stability; 
@@ -17,13 +20,19 @@ public class PlayerStat : MonoBehaviour
     { 
         return knockBack; 
     } 
+    public void SetHitFrom(GameObject mob)
+    {
+        HitFrom = mob;
+    }
     public void TakeDamage(int dammage,int KB) 
     { 
         health-=dammage; 
         if (health<=0) 
         { 
             //joue l'animation de mort 
-            Destroy(this.gameObject,3); 
+            gameObject.tag = "dead";
+            enemy_couroutine script = HitFrom.GetComponent<enemy_couroutine>(); 
+            script.SetTarget(null);
         } 
         else 
         { 
@@ -47,4 +56,4 @@ public class PlayerStat : MonoBehaviour
     { 
          
     } 
-} 
+} }
