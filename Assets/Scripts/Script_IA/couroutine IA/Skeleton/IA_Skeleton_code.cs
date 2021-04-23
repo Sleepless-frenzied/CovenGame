@@ -25,7 +25,7 @@ namespace classEnemyC
             if (Time.time > allow_jump) 
             { 
                 this.gameObject.GetComponent<Rigidbody>().AddForce(0,3,0,ForceMode.Impulse); 
-                animator.Play("Attack1h1");
+                attack();
                 allow_action = Time.time+0.7F; 
                 allow_jump= (int)Time.time + delay_jump; 
             } 
@@ -39,8 +39,9 @@ namespace classEnemyC
         } 
         public void WalkTo(Vector3 position) 
         { 
-            accel +=0.1f;
+            accel = 0.5f;
             animator.SetFloat("speedh",accel);
+            transform.LookAt (target.transform.position); 
             transform.position=Vector3.MoveTowards(position,target.transform.position, moveSpeed*Time.deltaTime); 
         }  
         public override void chase() 
@@ -52,6 +53,7 @@ namespace classEnemyC
         public override IEnumerator fighting() 
         { 
             accel=0;
+            animator.SetFloat("speedh",accel);
             fight = false; 
             System.Random random = new System.Random(); 
             switch (random.Next(2)) 
@@ -71,13 +73,15 @@ namespace classEnemyC
         public override void attack() 
         { 
             accel = 0;
+            animator.SetFloat("speedh",accel);
+            transform.LookAt (target.transform.position);
             if (Time.time > attackAllowed ) 
             { 
                 animator.Play("Attack1h1");
                 Skeleton_Sword script = weapon.GetComponent<Skeleton_Sword>(); 
                 script.SetIsHiting(true);
-            } 
-            attackAllowed = Time.time + attack_delay; 
+                attackAllowed = Time.time + attack_delay;
+            }  
         } 
 
         public override IEnumerator CheckEntity()

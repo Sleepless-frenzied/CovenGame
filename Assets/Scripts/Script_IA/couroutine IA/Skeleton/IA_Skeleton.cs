@@ -16,9 +16,9 @@ public class IA_Skeleton : MonoBehaviour
         Skeleton.SetTarget(null); 
         Skeleton.SetAnimator(animator);
         Skeleton.SetWeapon(Weapon);
-        ((enemy_couroutine)Skeleton).SetAttackRange(1); 
+        ((enemy_couroutine)Skeleton).SetAttackRange(2); 
         ((enemy_couroutine)Skeleton).SetMoveSpeed(3); 
-        ((enemy_couroutine)Skeleton).SetAttackDelay(3); 
+        ((enemy_couroutine)Skeleton).SetAttackDelay(1); 
         ((enemy_couroutine)Skeleton).SetAttackDammage(27); 
         Skeleton.StartCoroutine("CheckEntity");
     } 
