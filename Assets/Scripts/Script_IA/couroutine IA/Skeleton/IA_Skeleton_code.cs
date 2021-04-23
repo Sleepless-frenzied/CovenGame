@@ -24,7 +24,7 @@ namespace classEnemyC
         { 
             if (Time.time > allow_jump) 
             { 
-                this.gameObject.GetComponent<Rigidbody>().AddForce(0,3,0,ForceMode.Impulse); 
+                this.gameObject.GetComponent<Rigidbody>().AddForce(0,2,0,ForceMode.Impulse); 
                 attack();
                 allow_action = Time.time+0.7F; 
                 allow_jump= (int)Time.time + delay_jump; 
@@ -41,8 +41,10 @@ namespace classEnemyC
         { 
             accel = 0.5f;
             animator.SetFloat("speedh",accel);
+            if(target==null){}
+            else{
             transform.LookAt (target.transform.position); 
-            transform.position=Vector3.MoveTowards(position,target.transform.position, moveSpeed*Time.deltaTime); 
+            transform.position=Vector3.MoveTowards(position,target.transform.position, moveSpeed*Time.deltaTime);}
         }  
         public override void chase() 
         { 
