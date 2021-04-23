@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine; 
  
  namespace classEnemyC 
-{
-    public class PlayerStat : MonoBehaviour
-    {
-        protected GameObject HitFrom;
-        protected int health = 100;
-        protected int damage;
-        protected int allow_attack;
-        protected int stability;
-        protected int knockBack = 10;
+
+{ 
+public class PlayerStat : MonoBehaviour 
+{ 
+    protected GameObject HitFrom;
+    public GameObject Healthbar;
+    protected int health=100; 
+    protected int damage; 
+    protected int allow_attack; 
+    protected int stability; 
+    protected int knockBack=10; 
 
         public int GetDamage()
         {
@@ -64,5 +66,4 @@ using UnityEngine;
 
         }
     }
-    
-}
+   }
