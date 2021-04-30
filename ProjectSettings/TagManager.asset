@@ -8,6 +8,7 @@ TagManager:
   - Collide
   - Bullet
   - canJumpAbove
+  - dead
   layers:
   - Default
   - TransparentFX

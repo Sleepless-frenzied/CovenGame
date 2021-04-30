@@ -25,6 +25,7 @@ public class EquipmentManager : MonoBehaviour
     
     
 
+    public Transform itemsParent;
     private Inventory inventory;
     private Equipment[] currentEquipment;
 
@@ -33,6 +34,7 @@ public class EquipmentManager : MonoBehaviour
         inventory = Inventory.instance;
         int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
         currentEquipment = new Equipment[numSlots];
+        //currentEquipment= itemsParent.GetComponentsInChildren<Equipment>();
 
     }
 
@@ -51,6 +53,7 @@ public class EquipmentManager : MonoBehaviour
         {
             onEquipmentChanged.Invoke(newItem,oldItem);
         }
+        
         currentEquipment[slotIndex] = newItem;
     }
 

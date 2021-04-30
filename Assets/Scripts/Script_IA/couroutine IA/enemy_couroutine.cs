@@ -13,7 +13,7 @@ namespace classEnemyC
         protected GameObject weapon;  
         protected int ViewDistance; 
         protected int attackRange; 
-        protected int moveSpeed; 
+        protected float moveSpeed; 
         public Collision collision; 
         protected int attack_delay; 
         protected int attack_dammage; 
@@ -51,15 +51,15 @@ namespace classEnemyC
         { 
             return ally; 
         } 
-        public void SetMoveSpeed(GameObject ally) 
+        /*public void SetMoveSpeed(float ally) 
         { 
              this.ally=ally; 
-        } 
-        public int GetMoveSpeed() 
+        } */
+        public float GetMoveSpeed() 
         { 
             return moveSpeed; 
         } 
-        public void SetMoveSpeed(int moveSpeed) 
+        public void SetMoveSpeed(float moveSpeed) 
         { 
              this.moveSpeed=moveSpeed; 
         } 

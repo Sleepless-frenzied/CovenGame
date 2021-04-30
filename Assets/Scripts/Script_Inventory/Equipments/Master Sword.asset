@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Master Sword
   icon: {fileID: 21300000, guid: 3c91c788107323c4e93b0fac7e58b413, type: 3}
   isDefaultItem: 0
-  equipSlot: 3
+  equipSlot: 2
   armorModifier: 0
   damageModifier: 0
