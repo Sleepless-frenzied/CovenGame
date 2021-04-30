@@ -44,7 +44,7 @@ namespace classEnemyC
             if(target==null){}
             else{
             transform.LookAt (target.transform.position); 
-            transform.position=Vector3.MoveTowards(position,target.transform.position, moveSpeed*Time.deltaTime);}
+             transform.position=Vector3.MoveTowards(position,target.transform.position, moveSpeed*Time.deltaTime);}
         }  
         public override void chase() 
         { 

@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class CameraFollow : MonoBehaviour
+
+public class CameraFollow : MonoBehaviourPunCallbacks
 {
     public float CameraMoveSpeed = 120.0f;
     public GameObject CameraFollowObj;
@@ -30,7 +33,11 @@ public class CameraFollow : MonoBehaviour
         Vector3 rot = transform.localRotation.eulerAngles;
         rotY = rot.y;
         rotX = rot.x;
-        
+        if (!photonView.IsMine)
+            {
+                gameObject.SetActive(false);
+                this.enabled = false;
+            }
 
     }
 

@@ -12,7 +12,7 @@ public class InventoryUI : MonoBehaviour
     
     private InventorySlot[] slots;
 
-    private Animator animator;
+    [SerializeField]private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,7 @@ public class InventoryUI : MonoBehaviour
         inventory.OnItemChangedCallback += UpdateUI;
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
-        animator = GetComponentInChildren<Animator>();
+        animator = Inventory_UI.GetComponent<Animator>();
     }
 
     // Update is called once per frame

@@ -68,4 +68,16 @@ public class Pressed : MonoBehaviour
         }
     }
 
+    public void Button_Back()
+    {
+        if (SceneManager.GetActiveScene().name != "Main_Menu")
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            SwitchMenu("MainMenu");
+        }
+    }
+
 }
