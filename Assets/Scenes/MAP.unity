@@ -13218,7 +13218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8b7e58b01bc7d4cbaf75fdf9b183fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 7aac4c74908d951459c53072c93827c0, type: 2}
+  item: {fileID: 11400000, guid: 8455c931b423d2a4996004885ed3eef2, type: 2}
 --- !u!135 &753810402
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19315,12 +19315,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 755198702}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1091530374 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1225486358, guid: 91e45567e7b3c534bbb060cde57936a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 755198702}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1091530378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19333,7 +19327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc233f42d389e8a4f8bdcb60f43b78e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1091530374}
+  animator: {fileID: 0}
 --- !u!1001 &1092098127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28596,12 +28590,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1654090573}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1654090575 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1225486358, guid: 91e45567e7b3c534bbb060cde57936a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1654090573}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1654090576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28614,7 +28602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc233f42d389e8a4f8bdcb60f43b78e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1654090575}
+  animator: {fileID: 0}
 --- !u!1001 &1657787702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35415,7 +35403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8b7e58b01bc7d4cbaf75fdf9b183fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 5f7337785d4a28e4db143b2a2b8ec726, type: 2}
+  item: {fileID: 0}
 --- !u!135 &1838086487
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -35682,7 +35670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1770236891}
-  offset: {x: 0, y: -1, z: -1.2}
+  offset: {x: 0, y: 0, z: 0}
   zoomSpeed: 0.5
   minZoom: 5
   maxZoom: 15
@@ -42197,7 +42185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8b7e58b01bc7d4cbaf75fdf9b183fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 8455c931b423d2a4996004885ed3eef2, type: 2}
+  item: {fileID: 11400000, guid: 5f7337785d4a28e4db143b2a2b8ec726, type: 2}
 --- !u!135 &2142628751
 SphereCollider:
   m_ObjectHideFlags: 0
