@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class UnarmedCharacter : MonoBehaviour
 {
-
+    public GameObject Weapon;
     CapsuleCollider playerCollider;
     Animator animator;
     public bool isGrounded;
@@ -48,86 +48,92 @@ public class UnarmedCharacter : MonoBehaviour
         turnRight = Input.GetKey(KeyCode.D);
         isAttackPressed = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (animator.GetInteger("Weapon") == 0)
+        //show the weapon
+        if (animator.GetInteger("Weapon") == 1)
+
+            Weapon.SetActive(true);
+        else
+            Weapon.SetActive(false);
+
+     
+        //roll
+        if (lShiftPressed)
+            animator.SetBool("Roll", true);
+        else
+            animator.SetBool("Roll", false);
+
+
+        //run
+        if (forwardPressed && !backwardPressed)
         {
-            //roll
-            if (lShiftPressed)
-                animator.SetBool("Roll", true);
-            else
-                animator.SetBool("Roll", false);
-
-
-            //run
-            if (forwardPressed && !backwardPressed)
+            animator.SetBool("isRunning", true);
+            if (!isGrounded)
             {
-                animator.SetBool("isRunning", true);
-                if (!isGrounded)
-                {
-                    transform.Translate(0, 0, airSpeed * Time.deltaTime);
-                }
-            }
-            else
-            {
-                animator.SetBool("isRunning", false);
-            }
-
-            //back
-            if (backwardPressed && !forwardPressed)
-            {
-                animator.SetBool("isBack", true);
-                if (!isGrounded)
-                {
-                    transform.Translate(0, 0, -airSpeed * Time.deltaTime);
-                }
-            }
-            else
-            {
-                animator.SetBool("isBack", false);
-            }
-
-
-
-            // Rotation à gauche
-            if (turnLeft)
-            {
-                transform.Rotate(0, -turnSpeed * Time.deltaTime, 0);
-            }
-
-            // Rotation à droite
-            if (turnRight)
-            {
-                transform.Rotate(0, turnSpeed * Time.deltaTime, 0);
-            }
-
-
-            //saut
-            if (jumpPressed && isGrounded)
-            {
-                Vector3 v = gameObject.GetComponent<Rigidbody>().velocity;
-                v.y = jumpHigh.y;
-
-                animator.SetBool("Jump", true);
-                gameObject.GetComponent<Rigidbody>().velocity = jumpHigh;
-            }
-
-            //si on est dans les airs ou pas
-            if (isGrounded)
-            {
-                animator.SetBool("isInTheAir", false);
-            }
-            else
-            {
-                animator.SetBool("isInTheAir", true);
-            }
-
-            //Attack
-            if (isAttackPressed && isGrounded)
-            {
-                animator.SetInteger("Attack_NB", Random.Range(0, 5));
-                animator.SetTrigger("Attack");
-
+                transform.Translate(0, 0, airSpeed * Time.deltaTime);
             }
         }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
+
+        //back
+        if (backwardPressed && !forwardPressed)
+        {
+            animator.SetBool("isBack", true);
+            if (!isGrounded)
+            {
+                transform.Translate(0, 0, -airSpeed * Time.deltaTime);
+            }
+        }
+        else
+        {
+            animator.SetBool("isBack", false);
+        }
+
+
+
+        // Rotation à gauche
+        if (turnLeft)
+        {
+            transform.Rotate(0, -turnSpeed * Time.deltaTime, 0);
+        }
+
+        // Rotation à droite
+        if (turnRight)
+        {
+            transform.Rotate(0, turnSpeed * Time.deltaTime, 0);
+        }
+
+
+        //saut
+        if (jumpPressed && isGrounded)
+        {
+            Vector3 v = gameObject.GetComponent<Rigidbody>().velocity;
+            v.y = jumpHigh.y;
+
+            animator.SetBool("Jump", true);
+            gameObject.GetComponent<Rigidbody>().velocity = jumpHigh;
+        }
+
+        //si on est dans les airs ou pas
+        if (isGrounded)
+        {
+            animator.SetBool("isInTheAir", false);
+        }
+        else
+        {
+            animator.SetBool("isInTheAir", true);
+        }
+
+        //Attack
+        if (isAttackPressed && isGrounded)
+        {
+            animator.SetInteger("Attack_NB", Random.Range(0, 6));
+            animator.SetTrigger("Attack");
+
+        }
+        
 
 
     }
