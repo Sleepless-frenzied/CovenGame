@@ -19,20 +19,14 @@ public class OptionMenu : MonoBehaviour
     public Toggle Toggle_Fullscreen;
 
     public Toggle Toggle_mute;
-
-    public int FPS = -1;
     void Start()
     {
-        //FPS MANAGER
-        Application.targetFrameRate = FPS;
-        
         //FULLSCREEN MANAGER
         Toggle_Fullscreen.isOn = Screen.fullScreen;
         
         //QUALITY MANAGER
         Quality_Dropdown.value = QualitySettings.GetQualityLevel();
-
-        //TOGGLE MUTE
+        
         
         //RESOLUTION MANAGER
         resolutions = Screen.resolutions;
@@ -61,8 +55,8 @@ public class OptionMenu : MonoBehaviour
         
         TextVolume.text = "Volume " + (int) (100+tmp);
         TextSFX.text = "SFX " + (int) (100+tmp2);
-        //FPS MANAGER
-        Application.targetFrameRate = -1;
+        
+
     }
 
     //DROPDOWN RESOLUTION
@@ -103,18 +97,5 @@ public class OptionMenu : MonoBehaviour
     public void Mute()
     {
         AudioListener.pause = !AudioListener.pause;
-    }
-
-    public void SetFPS(TMP_Dropdown drop)
-    {
-        switch (drop.value)
-        {
-            case 0 :
-                Application.targetFrameRate = 30;
-                break;
-            case 1:
-                Application.targetFrameRate = 60;
-                break;
-        }
     }
 }

@@ -15,6 +15,8 @@ MonoBehaviour:
   name: Hylian Shield
   icon: {fileID: 21300000, guid: 2539e61911ff9d447876e9cd5580302e, type: 3}
   isDefaultItem: 0
+  description: Bouclier
   equipSlot: 3
+  weapontype: 0
   armorModifier: 2147483647
   damageModifier: 0

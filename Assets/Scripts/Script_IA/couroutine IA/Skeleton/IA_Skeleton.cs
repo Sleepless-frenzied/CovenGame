@@ -19,8 +19,7 @@ public class IA_Skeleton : MonoBehaviour
         ((enemy_couroutine)Skeleton).SetAttackRange(2); 
         ((enemy_couroutine)Skeleton).SetMoveSpeed(3); 
         ((enemy_couroutine)Skeleton).SetAttackDelay(1); 
-        ((enemy_couroutine)Skeleton).SetAttackDammage(27);
-        ((enemy_couroutine)Skeleton).SetHealth(100);
+        ((enemy_couroutine)Skeleton).SetAttackDammage(27); 
         Skeleton.StartCoroutine("CheckEntity");
     } 
     // Update is called once per frame 
