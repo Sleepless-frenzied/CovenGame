@@ -2810,12 +2810,6 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Dead
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
   - m_Name: isInTheAir
     m_Type: 4
     m_DefaultFloat: 0
@@ -2835,6 +2829,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: Jump
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: Dead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -3273,12 +3273,12 @@ AnimatorStateMachine:
   - {fileID: 5572690217367697523}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 6123858641960617790}
-    second:
-    - {fileID: 8812808472920056811}
   - first: {fileID: -4225807297675075458}
     second:
     - {fileID: 5941095088900990124}
+  - first: {fileID: 6123858641960617790}
+    second:
+    - {fileID: 8812808472920056811}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -200, y: 300, z: 0}
   m_EntryPosition: {x: 120, y: 30, z: 0}
@@ -4082,8 +4082,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Revive
+  - m_ConditionMode: 2
+    m_ConditionEvent: Dead
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4255792830145038027}

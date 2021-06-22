@@ -1,4 +1,4 @@
-﻿using System.Collections; 
+using System.Collections; 
 using System.Collections.Generic; 
 using System; 
 using UnityEngine; 
@@ -10,6 +10,7 @@ namespace classEnemyC
         private int allow_jump = 0; 
         private float allow_action=0; 
         private float accel = 0.1f;
+        
  
         private bool fight = true; 
         public bool GetFight() 
@@ -20,54 +21,80 @@ namespace classEnemyC
         { 
             return allow_action; 
         } 
-        public void JumpForward() 
-        { 
-            if (Time.time > allow_jump) 
-            { 
-                this.gameObject.GetComponent<Rigidbody>().AddForce(0,4,0,ForceMode.Impulse); 
-                animator.Play("Jump");
-                allow_action = Time.time+0.7F; 
-                allow_jump= (int)Time.time + delay_jump; 
-            } 
-        } 
+        public override void TakeDamage(PlayerStat player)
+        {
+            health-=player.GetDamage();
+            if (health<=0)
+            {
+                animator.SetBool("Dead",true);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                animator.Play("Hit");
+            }
+        }
         public void WalkTo(Vector3 position) 
         { 
-            animator.Play("run");
+            animator.Play("Walk");
             transform.position=Vector3.MoveTowards(position,target.transform.position, moveSpeed*Time.deltaTime); 
         }  
-        public override void chase() 
+        public override void chase()
+        {}
+        public void FireAttack() 
         { 
-            Vector3 Targetposition = new Vector3 (target.transform.position.x, transform.position.y, target.transform.position.z); 
-            transform.LookAt (Targetposition); 
-            WalkTo(transform.position); 
+            transform.LookAt (target.transform.position);
+            Debug.Log("flame attack");
+            animator.SetTrigger("Flame Attack");
+            GameObject[] listPlayer = GameObject.FindGameObjectsWithTag("Player");
+            foreach (var player in listPlayer)
+            {
+                Animator animationPlayer = player.GetComponent<Animator>();
+                animationPlayer.SetTrigger("Dead");
+            }
+            allow_action = Time.time + 6;
+            
         } 
         public override IEnumerator fighting() 
         { 
             accel=0;
             fight = false; 
-            System.Random random = new System.Random(); 
-            switch (random.Next(6)) 
+            System.Random random = new System.Random();
+            switch (random.Next(9)) 
             { 
-                case 0 : JumpForward(); 
-                         break; 
-                case 1 : for (int i = 0; i < 20; i++) 
+                case 1 : for (int i = 0; i < 10; i++) 
                 { 
                     WalkTo(transform.position); 
                     yield return new WaitForFixedUpdate(); 
                 }  
                          break;        
-                /*case 2 : */
+                case 2 : 
+                         FireAttack();
+                         break;
+                case 3 : 
+                         FireAttack();
+                         break;
+                default: attack();
+                         break;
             } 
             fight = true; 
             yield return new WaitForEndOfFrame(); 
         } 
         public override void attack() 
         { 
-            /*System.Random random = new System.Random(); 
-            switch (random.Next(2)) 
-            {
-                case 0 :  
-            }*/
+            transform.LookAt (target.transform.position);
+            if (Time.time > attackAllowed ) 
+            { 
+                System.Random random = new System.Random();
+                if (random.Next(2)==1)
+                {
+                    animator.Play("Basic attack");
+                }
+                else {animator.Play("Claw Attack");}
+                HitboxHit script = weapon.GetComponent<HitboxHit>(); 
+                script.SetIsHiting(true);
+                allow_action = Time.time + 1;
+            }  
         } 
 
         public override IEnumerator CheckEntity()
