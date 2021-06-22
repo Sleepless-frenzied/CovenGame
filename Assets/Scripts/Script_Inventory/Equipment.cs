@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="New Equipment",menuName = "Inventory/Equipment")]
 public class Equipment : Item
 {
-    public EquipmentSlot equipSlot;
+    public Equipments equipSlot;
+    public WeaponType weapontype = WeaponType.None;
     public int armorModifier;
     public int damageModifier;
     public override void Use()
@@ -16,7 +17,15 @@ public class Equipment : Item
     }
 }
 
-public enum EquipmentSlot
+public enum WeaponType
+{
+    None,
+    Sword,
+    Spear,
+    Hammer,
+    DoubleSword
+}
+public enum Equipments
 {
     Head,
     Chest,

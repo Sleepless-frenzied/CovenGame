@@ -21,7 +21,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     [SerializeField] private CurrentRoom _currentRoom;
     
     private SelectCanvas _selectCanvas;
-    public RoomOptions options = new RoomOptions();
+    private RoomOptions options = new RoomOptions();
     
     public void OnClick_CreateRoom()
     {
@@ -44,6 +44,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         {
             options.MaxPlayers = 4;
         }
+        
         PhotonNetwork.JoinOrCreateRoom(_roomName.text, options, TypedLobby.Default); // créer la room
 
         Debug.Log("CREATE ROOM PRESSED");
@@ -65,7 +66,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.CurrentRoom.IsOpen = false;
             PhotonNetwork.CurrentRoom.IsVisible = false;
-            PhotonNetwork.LoadLevel("Level_1");
+            PhotonNetwork.LoadLevel("Level 1");
         }
     }
 

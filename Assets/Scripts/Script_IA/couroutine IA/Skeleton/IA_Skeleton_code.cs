@@ -20,19 +20,6 @@ namespace classEnemyC
         { 
             return allow_action; 
         } 
-        public override void TakeDamage(PlayerStat player)
-        {
-            health-=player.GetDamage();
-            if (health<=0)
-            {
-                animator.Play("Fall1");
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                animator.Play("Hit1");
-            }
-        }
         public void JumpForward() 
         { 
             if (Time.time > allow_jump) 
@@ -57,7 +44,7 @@ namespace classEnemyC
             if(target==null){}
             else{
             transform.LookAt (target.transform.position); 
-             transform.position=Vector3.MoveTowards(position,target.transform.position, moveSpeed*Time.deltaTime);}
+            transform.position=Vector3.MoveTowards(position,target.transform.position, moveSpeed*Time.deltaTime);}
         }  
         public override void chase() 
         { 
