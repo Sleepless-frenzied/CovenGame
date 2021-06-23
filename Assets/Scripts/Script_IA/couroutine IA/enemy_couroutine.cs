@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic; 
 using UnityEngine; 
  
-namespace classEnemyC 
+namespace Coven
 { 
     public abstract class enemy_couroutine : MonoBehaviour 
     { 
@@ -13,7 +13,7 @@ namespace classEnemyC
         protected GameObject weapon;  
         protected int ViewDistance; 
         protected int attackRange; 
-        protected int moveSpeed; 
+        protected float moveSpeed; 
         public Collision collision; 
         protected int attack_delay; 
         protected int attack_dammage; 
@@ -29,7 +29,7 @@ namespace classEnemyC
         public abstract void chase(); 
         public abstract IEnumerator fighting(); 
         public abstract IEnumerator CheckEntity();
-        public void ApplyDamage() 
+        public void ApplyDamage(GameObject target) 
         { 
             PlayerStat script =target.GetComponent<PlayerStat>();
             script.TakeDamage(attack_dammage,KbForces);
@@ -43,6 +43,14 @@ namespace classEnemyC
         { 
              this.attack_delay=attack_delay; 
         } 
+        public void SetHealth(int health) 
+        { 
+             this.health=health; 
+        } 
+        public void SetFightingRange(int fightingRange) 
+        { 
+             this.fightingRange=fightingRange; 
+        } 
         public Animator Getanimator() 
         { 
             return animator; 
@@ -51,15 +59,15 @@ namespace classEnemyC
         { 
             return ally; 
         } 
-        public void SetMoveSpeed(GameObject ally) 
+        /*public void SetMoveSpeed(float ally) 
         { 
              this.ally=ally; 
-        } 
-        public int GetMoveSpeed() 
+        } */
+        public float GetMoveSpeed() 
         { 
             return moveSpeed; 
         } 
-        public void SetMoveSpeed(int moveSpeed) 
+        public void SetMoveSpeed(float moveSpeed) 
         { 
              this.moveSpeed=moveSpeed; 
         } 
@@ -91,18 +99,7 @@ namespace classEnemyC
         { 
             this.animator=animator; 
         } 
-        public void TakeDamage(PlayerStat player) 
-        { 
-            health-=player.GetDamage(); 
-            if (health<=0) 
-            { 
-                //joue l'animation de mort 
-                //Destroy(this.gameObject,3); 
-            } 
-            else 
-            { 
-                this.gameObject.GetComponent<Rigidbody>().AddForce(0,(player.GetKnockBack()-stability)/2,stability-player.GetKnockBack(),ForceMode.Impulse); 
-            } 
-        } 
+        public abstract void TakeDamage(PlayerStat player);
+        
     } 
 } 

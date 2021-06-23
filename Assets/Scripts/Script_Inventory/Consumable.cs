@@ -1,7 +1,6 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
-using classEnemyC;
-using Photon.Realtime;
+using Coven;
 using UnityEngine;
 
 
@@ -26,3 +25,4 @@ using UnityEngine;
     }
     
     
+

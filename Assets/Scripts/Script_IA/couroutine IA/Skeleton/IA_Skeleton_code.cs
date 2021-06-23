@@ -1,8 +1,8 @@
-﻿using System.Collections; 
+using System.Collections; 
 using System.Collections.Generic; 
 using System; 
 using UnityEngine; 
-namespace classEnemyC 
+namespace Coven
 { 
     public class IA_Skeleton_code : enemy_couroutine 
     { 
@@ -20,6 +20,19 @@ namespace classEnemyC
         { 
             return allow_action; 
         } 
+        public override void TakeDamage(PlayerStat player)
+        {
+            health-=player.GetDamage();
+            if (health<=0)
+            {
+                animator.Play("Fall1");
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                animator.Play("Hit1");
+            }
+        }
         public void JumpForward() 
         { 
             if (Time.time > allow_jump) 
@@ -43,8 +56,8 @@ namespace classEnemyC
             animator.SetFloat("speedh",accel);
             if(target==null){}
             else{
-            transform.LookAt (target.transform.position); 
-            transform.position=Vector3.MoveTowards(position,target.transform.position, moveSpeed*Time.deltaTime);}
+            transform.LookAt (new Vector3 (target.transform.position.x, transform.position.y, target.transform.position.z)); 
+             transform.position=Vector3.MoveTowards(position,target.transform.position, moveSpeed*Time.deltaTime);}
         }  
         public override void chase() 
         { 
@@ -76,7 +89,7 @@ namespace classEnemyC
         { 
             accel = 0;
             animator.SetFloat("speedh",accel);
-            transform.LookAt (target.transform.position);
+            transform.LookAt (new Vector3 (target.transform.position.x, transform.position.y, target.transform.position.z)); 
             if (Time.time > attackAllowed ) 
             { 
                 animator.Play("Attack1h1");

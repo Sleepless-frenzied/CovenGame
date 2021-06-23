@@ -9,6 +9,10 @@ public class Equipment : Item
     public WeaponType weapontype = WeaponType.None;
     public int armorModifier;
     public int damageModifier;
+    public float celerityModifier;
+    public float cooldownModifier;
+    public float manaModifier;
+    public float healthModifier;
     public override void Use()
     {
         base.Use();
