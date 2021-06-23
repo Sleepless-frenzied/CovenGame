@@ -6,10 +6,12 @@ using UnityEngine;
 { 
 public class PlayerStat : MonoBehaviour 
 { 
+    protected Animator animator;
     protected GameObject HitFrom;
     public GameObject Healthbar;
     protected int health=100; 
     protected int damage; 
+    protected float death;
     protected int allow_attack; 
     protected int stability; 
     protected int knockBack=10; 
@@ -34,6 +36,8 @@ public class PlayerStat : MonoBehaviour
             gameObject.tag = "dead";
             enemy_couroutine script = HitFrom.GetComponent<enemy_couroutine>(); 
             script.SetTarget(null);
+            animator.SetBool("Dead",true);
+            death = Time.time + 4;
         } 
         else 
         { 
@@ -53,8 +57,18 @@ public class PlayerStat : MonoBehaviour
     } 
  
     // Update is called once per frame 
-    void Update() 
+    void Start() 
     { 
-         
+        animator = gameObject.GetComponent<Animator>();
     } 
+    void Update()
+    {
+        if (tag=="dead" && death<=Time.time)
+        {
+            transform.position = (GameObject.FindGameObjectWithTag("Spawn")).transform.position;
+            animator.SetBool("Dead",false);
+            tag="Player";
+            health = 100;
+        }
+    }
 } }
