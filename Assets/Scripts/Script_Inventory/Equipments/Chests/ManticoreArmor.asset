@@ -9,12 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57d164bd1fff90c489317b564d1a6a3b, type: 3}
-  m_Name: Low Mana Potion
+  m_Script: {fileID: 11500000, guid: b5da1a272f1b79942b78c8ccc2e3b072, type: 3}
+  m_Name: ManticoreArmor
   m_EditorClassIdentifier: 
-  name: Mana Potion
-  icon: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
+  name: ManticoreArmor
+  icon: {fileID: 21300000, guid: 41f927d1a0d01d74b8f392dc9d00a066, type: 3}
   isDefaultItem: 0
-  description: Restore 25% mana
-  effect: 1
-  grade: 0
+  description: 
+  equipSlot: 1
+  weapontype: 0
+  armorModifier: 0
+  damageModifier: 0

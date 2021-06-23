@@ -52,7 +52,8 @@ public class Consumable : Item
 
 public enum Effect
 {
-    Potion,
+    PotionHP,
+    PotionMana,
     Antidote,
     Revive,
     Buff

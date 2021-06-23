@@ -26,11 +26,21 @@ public class EquipmentManager : MonoBehaviour
     public OnEquipmentChanged onEquipmentChanged;
 
 
-    
+    //modifiers
+    public UnarmedCharacter player;
+    /*private float celerity = 0;
+    private float cooldown = 0;
+    private float maxHealth = 0;
+    private float maxMana = 0;*/
+
     public Transform itemsParent;
     private Inventory inventory;
     public Equipment[] currentEquipment;
-    private EquipmentSlot[] slots; 
+    private EquipmentSlot[] slots;
+    
+    
+
+    
 
     private void Start()
     {
@@ -39,7 +49,6 @@ public class EquipmentManager : MonoBehaviour
         int numSlots = System.Enum.GetNames(typeof(Equipments)).Length;
         currentEquipment = new Equipment[numSlots];
         slots = itemsParent.GetComponentsInChildren<EquipmentSlot>();
-
     }
     
     public void Equip(Equipment newItem)
@@ -57,15 +66,19 @@ public class EquipmentManager : MonoBehaviour
             onEquipmentChanged.Invoke(newItem,oldItem);
         }
         
+        ChangeStat(newItem,true);
         currentEquipment[slotIndex] = newItem;
-        Debug.Log(currentEquipment[slotIndex] + " or " + currentEquipment[2]);
+        Debug.Log(newItem.celerityModifier + "" + newItem.cooldownModifier + "" + newItem.healthModifier + "" + newItem.manaModifier);
         slots[slotIndex].AddItem(newItem);
+        
     }
 
     public void UnEquip(int slotIndex)
     {
         if (currentEquipment[slotIndex] != null)
         {
+            ChangeStat(currentEquipment[slotIndex], false);
+            
             Equipment oldItem = currentEquipment[slotIndex];
             inventory.Add(oldItem);
 
@@ -75,6 +88,9 @@ public class EquipmentManager : MonoBehaviour
             }
             currentEquipment[slotIndex] = null;
         }
+        
+        
+        
     }
     public void UnEquipAll()
     {
@@ -89,35 +105,30 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
+
+    public void ChangeStat(Equipment equipment, bool added)
+    {
+        if (added)
+        {
+            player.celerity += equipment.celerityModifier;
+            player.attackCooldown -= equipment.cooldownModifier;
+            player.MaxHealth += equipment.healthModifier;
+            player.MaxMana += equipment.manaModifier;
+        }
+        else
+        {
+            player.celerity -= equipment.celerityModifier;
+            player.attackCooldown += equipment.cooldownModifier;
+            player.MaxHealth -= equipment.healthModifier;
+            player.MaxMana -= equipment.manaModifier;
+        }
+    }
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.U))
         {
             UnEquipAll();
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad0))
-        {
-            Debug.Log(currentEquipment[0]);
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            Debug.Log(currentEquipment[1]);
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            Debug.Log(currentEquipment[2]);
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            Debug.Log(currentEquipment[3]);
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
-            Debug.Log(currentEquipment[4]);
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad9))
-        {
-            Debug.Log("ahaa");
         }
     }
 }
