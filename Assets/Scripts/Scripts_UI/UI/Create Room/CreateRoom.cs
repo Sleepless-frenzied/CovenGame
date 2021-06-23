@@ -8,7 +8,6 @@ using Photon.Realtime;
 using Photon.Pun;
 using TMPro;
 using UnityEngine.SceneManagement;
-
 public class CreateRoom : MonoBehaviourPunCallbacks
 {
     [SerializeField]
@@ -35,12 +34,13 @@ public class CreateRoom : MonoBehaviourPunCallbacks
             return;// création options
         options.IsVisible = true;
         options.EmptyRoomTtl = 1000;
-
+        
         if (_roomName.text.Trim() == "")
         {
             Debug.Log("invalid room name");
             return;
         }
+        
         if (t2.isOn) // selection le nbr de joueur pour la room
         {
             options.MaxPlayers = 2;
@@ -69,22 +69,16 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     public void OnClick_StartGame()
     {
         if (!PhotonNetwork.IsConnected)
-        {
-            Debug.Log("not connected");
             return;
-        }
         if (PhotonNetwork.IsMasterClient)
         {
-            if (!PhotonNetwork.OfflineMode)
-            {
-                PhotonNetwork.CurrentRoom.IsOpen = false;
-                PhotonNetwork.CurrentRoom.IsVisible = false;
-            }
-            Debug.Log("coucou");
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+            PhotonNetwork.CurrentRoom.IsVisible = false;
+            Debug.Log("Starting game ...");
             PhotonNetwork.LoadLevel("Level_1");
         }
     }
-
+    
     public void OnClick_StartSolo()
     {
         PhotonNetwork.OfflineMode = true;
@@ -93,6 +87,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         SceneManager.LoadSceneAsync("Level_1");
     }
     
+
     public override void OnCreatedRoom() // debug
     {
         Debug.Log("Room created succesfully.", this);
