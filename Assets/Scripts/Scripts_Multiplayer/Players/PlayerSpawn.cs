@@ -13,7 +13,8 @@ public class PlayerSpawn : MonoBehaviourPunCallbacks
 
         PhotonNetwork.Instantiate("Player",pos,rot);
     }
-     // Start is called before the first frame update
+
+    // Start is called before the first frame update
     void Update()
     {
         //if (!photonView.IsMine && PhotonNetwork.IsConnected)
