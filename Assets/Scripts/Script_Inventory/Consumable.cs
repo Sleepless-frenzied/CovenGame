@@ -1,67 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using classEnemyC;
+using Photon.Realtime;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New Consumable",menuName = "Inventory/Consumable")]
-public class Consumable : Item
-{
-    public Effect effect;
 
-    public Grade grade;
+    [CreateAssetMenu(fileName ="New Consumable",menuName = "Inventory/Consumable")]
+    public class Consumable : Item
+    {
+        public Effect effect;
     
-    // Start is called before the first frame update
-    public override void Use()
-    {
-        base.Use();
+        public Grade grade;
+
+        public Buffs buff;
+        // Start is called before the first frame update
         
-        RemoveFromInventory();
+        public override void Use()
+        {
+            base.Use();
+            ConsumableManager.instance.What(this);
+            RemoveFromInventory();
+        }
+    
+        
     }
-
-    /*public int GetPV(this)
-    {
-        int pv = 0;
-        if (!(effect == Effect.Buff && effect == Effect.Antidote))
-        {
-            switch (grade)
-            {
-                case Grade.Low:
-                    TODO
-                case Grade.Middle:
-                    TODO
-                case Grade.High:
-                    TODO
-                case Grade.God:
-                    TODO
-            }
-        }
-        else
-        {
-            if (sw)
-            {
-                
-            }
-        }
-        switch (effect)
-        {
-            case Effect.Potion:
-                
-        }
-    }*/
-}
-
-public enum Effect
-{
-    Potion,
-    Antidote,
-    Revive,
-    Buff
-}
-
-public enum Grade
-{
-    Low,
-    Middle,
-    High,
-    God
-}
+    
+    
