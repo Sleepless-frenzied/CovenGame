@@ -47,6 +47,8 @@ public class UnarmedCharacter : MonoBehaviour
     public GameObject equipement;
     public GameObject inventoryUI;
 
+    public Status status = Status.Healthy;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
