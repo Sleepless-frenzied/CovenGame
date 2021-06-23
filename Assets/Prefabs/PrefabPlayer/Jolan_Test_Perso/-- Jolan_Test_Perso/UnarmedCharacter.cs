@@ -15,6 +15,7 @@ public class UnarmedCharacter : MonoBehaviour
     //interact
     public LayerMask interactionMask;
     public Camera camInteract;
+    protected Coven.PlayerStat playerStat;
 
     //jump attributes and gravity
     public bool isGrounded;
@@ -50,6 +51,7 @@ public class UnarmedCharacter : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         animator.SetBool("Acting", false);
+        playerStat = gameObject.GetComponent<Coven.PlayerStat>();
     }
 
     //[PunRPC]
@@ -159,6 +161,7 @@ public class UnarmedCharacter : MonoBehaviour
 
         if (isAttackPressed && isGrounded && Time.time > nextAttackTime)
         {
+            playerStat.SetIsHiting(true);
             animator.SetInteger("Attack_NB", Random.Range(0, 6));
             //animator.SetTrigger("Attack");
             animator.SetBool("isAttacking",true);

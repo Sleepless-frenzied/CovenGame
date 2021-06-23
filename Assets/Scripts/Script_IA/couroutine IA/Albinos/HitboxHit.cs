@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace classEnemyC {
+namespace Coven {
 public class HitboxHit : MonoBehaviour
 {
     public GameObject purple;
