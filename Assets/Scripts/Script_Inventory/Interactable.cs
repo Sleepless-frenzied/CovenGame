@@ -1,5 +1,6 @@
 ﻿using System;
 using Photon.Realtime;
+using UnityEditor;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
@@ -7,7 +8,10 @@ public class Interactable : MonoBehaviour
     public virtual void Interact()
     {
         Debug.Log("interact");
+        
     }
+    
+    
     /*private Transform Ybot;
 
     public Transform interactionTransform;

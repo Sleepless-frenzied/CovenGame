@@ -13,7 +13,7 @@ namespace classEnemyC
         protected GameObject weapon;  
         protected int ViewDistance; 
         protected int attackRange; 
-        protected float moveSpeed; 
+        protected int moveSpeed; 
         public Collision collision; 
         protected int attack_delay; 
         protected int attack_dammage; 
@@ -43,14 +43,6 @@ namespace classEnemyC
         { 
              this.attack_delay=attack_delay; 
         } 
-        public void SetHealth(int health) 
-        { 
-             this.health=health; 
-        } 
-        public void SetFightingRange(int fightingRange) 
-        { 
-             this.fightingRange=fightingRange; 
-        } 
         public Animator Getanimator() 
         { 
             return animator; 
@@ -59,15 +51,15 @@ namespace classEnemyC
         { 
             return ally; 
         } 
-        /*public void SetMoveSpeed(float ally) 
+        public void SetMoveSpeed(GameObject ally) 
         { 
              this.ally=ally; 
-        } */
-        public float GetMoveSpeed() 
+        } 
+        public int GetMoveSpeed() 
         { 
             return moveSpeed; 
         } 
-        public void SetMoveSpeed(float moveSpeed) 
+        public void SetMoveSpeed(int moveSpeed) 
         { 
              this.moveSpeed=moveSpeed; 
         } 
@@ -99,7 +91,18 @@ namespace classEnemyC
         { 
             this.animator=animator; 
         } 
-        public abstract void TakeDamage(PlayerStat player);
-        
+        public void TakeDamage(PlayerStat player) 
+        { 
+            health-=player.GetDamage(); 
+            if (health<=0) 
+            { 
+                //joue l'animation de mort 
+                //Destroy(this.gameObject,3); 
+            } 
+            else 
+            { 
+                this.gameObject.GetComponent<Rigidbody>().AddForce(0,(player.GetKnockBack()-stability)/2,stability-player.GetKnockBack(),ForceMode.Impulse); 
+            } 
+        } 
     } 
 } 
