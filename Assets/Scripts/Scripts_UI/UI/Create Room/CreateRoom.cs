@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Realtime;
 using Photon.Pun;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class CreateRoom : MonoBehaviourPunCallbacks
 {
     [SerializeField]
@@ -32,6 +36,11 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         options.IsVisible = true;
         options.EmptyRoomTtl = 1000;
 
+        if (_roomName.text.Trim() == "")
+        {
+            Debug.Log("invalid room name");
+            return;
+        }
         if (t2.isOn) // selection le nbr de joueur pour la room
         {
             options.MaxPlayers = 2;
@@ -60,15 +69,30 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     public void OnClick_StartGame()
     {
         if (!PhotonNetwork.IsConnected)
+        {
+            Debug.Log("not connected");
             return;
+        }
         if (PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.CurrentRoom.IsOpen = false;
-            PhotonNetwork.CurrentRoom.IsVisible = false;
+            if (!PhotonNetwork.OfflineMode)
+            {
+                PhotonNetwork.CurrentRoom.IsOpen = false;
+                PhotonNetwork.CurrentRoom.IsVisible = false;
+            }
+            Debug.Log("coucou");
             PhotonNetwork.LoadLevel("Level_1");
         }
     }
 
+    public void OnClick_StartSolo()
+    {
+        PhotonNetwork.OfflineMode = true;
+        options.MaxPlayers = 1;
+        PhotonNetwork.JoinOrCreateRoom("solo",options , TypedLobby.Default);
+        SceneManager.LoadSceneAsync("Level_1");
+    }
+    
     public override void OnCreatedRoom() // debug
     {
         Debug.Log("Room created succesfully.", this);

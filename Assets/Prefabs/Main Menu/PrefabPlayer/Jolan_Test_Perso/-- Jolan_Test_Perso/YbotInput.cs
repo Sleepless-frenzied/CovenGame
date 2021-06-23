@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Prefabs/PrefabPlayer/Jolan_Test_Perso/-- Jolan_Test_Perso/YbotInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Prefabs/Main Menu/PrefabPlayer/Jolan_Test_Perso/-- Jolan_Test_Perso/YbotInput.inputactions'
 
 using System;
 using System.Collections;
