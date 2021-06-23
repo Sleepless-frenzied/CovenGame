@@ -26,11 +26,10 @@ public class EquipmentManager : MonoBehaviour
     public OnEquipmentChanged onEquipmentChanged;
 
 
-
-
+    
     public Transform itemsParent;
     private Inventory inventory;
-    private Equipment[] currentEquipment;
+    public Equipment[] currentEquipment;
     private EquipmentSlot[] slots; 
 
     private void Start()
@@ -59,6 +58,7 @@ public class EquipmentManager : MonoBehaviour
         }
         
         currentEquipment[slotIndex] = newItem;
+        Debug.Log(currentEquipment[slotIndex] + " or " + currentEquipment[2]);
         slots[slotIndex].AddItem(newItem);
     }
 
@@ -94,6 +94,30 @@ public class EquipmentManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             UnEquipAll();
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad0))
+        {
+            Debug.Log(currentEquipment[0]);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            Debug.Log(currentEquipment[1]);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            Debug.Log(currentEquipment[2]);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            Debug.Log(currentEquipment[3]);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            Debug.Log(currentEquipment[4]);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad9))
+        {
+            Debug.Log("ahaa");
         }
     }
 }

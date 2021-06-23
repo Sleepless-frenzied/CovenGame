@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5da1a272f1b79942b78c8ccc2e3b072, type: 3}
-  m_Name: Master Sword
+  m_Name: BasicHammer
   m_EditorClassIdentifier: 
-  name: Master Sword
-  icon: {fileID: 21300000, guid: 3c91c788107323c4e93b0fac7e58b413, type: 3}
+  name: BasicHammer
+  icon: {fileID: 21300000, guid: d8895a01c025a76418de5bf40b0cd906, type: 3}
   isDefaultItem: 0
-  description: Sword
+  description: A simple Hammer
   equipSlot: 2
-  weapontype: 1
+  weapontype: 3
   armorModifier: 0
   damageModifier: 0
