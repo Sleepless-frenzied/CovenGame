@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using classEnemyC;
+using Coven;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="New Consumable",menuName = "Inventory/Consumable")]

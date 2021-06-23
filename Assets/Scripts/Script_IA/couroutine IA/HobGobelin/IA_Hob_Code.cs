@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic; 
 using System; 
 using UnityEngine; 
-namespace classEnemyC 
+namespace Coven
 { 
     public class IA_Hob_Code : enemy_couroutine 
     { 
