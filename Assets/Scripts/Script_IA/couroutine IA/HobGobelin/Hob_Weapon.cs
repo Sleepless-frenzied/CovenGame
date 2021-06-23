@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace classEnemyC 
 { 
-public class Skeleton_Sword : MonoBehaviour
+public class Hob_Weapon : MonoBehaviour
 {
     public GameObject holder;
     protected bool IsHiting = false; 
@@ -12,9 +12,9 @@ public class Skeleton_Sword : MonoBehaviour
     {
         this.IsHiting = IsHiting;
     }
-    void OnCollisionEnter(Collision collision) 
+    void OnTriggerStay(Collider collision) 
     {
-        IA_Skeleton_code script = holder.GetComponent<IA_Skeleton_code>();
+        IA_Hob_Code script = holder.GetComponent<IA_Hob_Code>();
         if (IsHiting && collision.gameObject == script.GetTarget())
         {
             Debug.Log("hit");
@@ -24,9 +24,8 @@ public class Skeleton_Sword : MonoBehaviour
     }
     void Update()
     {
-        IA_Skeleton_code script = holder.GetComponent<IA_Skeleton_code>();
-        IsHiting = script.Getanimator().GetCurrentAnimatorStateInfo(0).IsName("Attack1h1");
+        IA_Hob_Code script = holder.GetComponent<IA_Hob_Code>();
+        IsHiting = script.Getanimator().GetCurrentAnimatorStateInfo(0).IsName("attack02");
     }
 }
 }
-
