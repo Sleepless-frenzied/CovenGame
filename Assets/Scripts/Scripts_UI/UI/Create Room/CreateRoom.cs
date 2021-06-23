@@ -66,7 +66,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.CurrentRoom.IsOpen = false;
             PhotonNetwork.CurrentRoom.IsVisible = false;
-            PhotonNetwork.LoadLevel("Level 1");
+            PhotonNetwork.LoadLevel("Level_1");
         }
     }
 
