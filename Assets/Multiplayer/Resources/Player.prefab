@@ -1940,6 +1940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsParent: {fileID: 9165028049357007250}
+  currentEquipment: []
 --- !u!1 &4266284469856244491
 GameObject:
   m_ObjectHideFlags: 0
@@ -11203,7 +11204,7 @@ GameObject:
   - component: {fileID: 7595365993918612986}
   - component: {fileID: 8713251353745199090}
   m_Layer: 0
-  m_Name: player
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15560,6 +15561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsParent: {fileID: 9165028049357007250}
+  currentEquipment: []
 --- !u!1 &9165028049357007251
 GameObject:
   m_ObjectHideFlags: 0
@@ -16054,6 +16056,8 @@ MonoBehaviour:
   mana: 100
   healthBar: {fileID: 8258849207471232406}
   manaBar: {fileID: 8258849207873549636}
+  equipement: {fileID: 0}
+  inventoryUI: {fileID: 0}
 --- !u!143 &8258849208079706336
 CharacterController:
   m_ObjectHideFlags: 0
