@@ -42,7 +42,7 @@ public class InventoryUI : MonoBehaviour
 
     private IEnumerator wait()
     {
-        yield return new WaitForSeconds(1.30f);
+        yield return new WaitForSeconds(0.80f);
         Inventory_UI.SetActive(false);
     }
 
