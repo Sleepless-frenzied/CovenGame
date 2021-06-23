@@ -42,7 +42,8 @@ public class UnarmedCharacter : MonoBehaviour
     public float mana = 100;
     public Image healthBar;
     public Image manaBar;
-    
+    public GameObject equipement;
+    public GameObject inventoryUI;
 
     void Awake()
     {
@@ -53,24 +54,52 @@ public class UnarmedCharacter : MonoBehaviour
 
     void Update()
     {
-        lShiftPressed = Input.GetKeyDown(KeyCode.LeftShift);
-        jumpPressed = Input.GetKeyDown(KeyCode.Space);
-        isAttackPressed = Input.GetKeyDown(KeyCode.Mouse0);
-        
         
         //PV and Mana update
         healthBar.fillAmount = health / MaxHealth;
         manaBar.fillAmount = mana / MaxMana;
-        
-        
-
+             
         //Is grounded ??? and gravity
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         Debug.DrawRay(groundCheck.position, transform.up * -0.5f, Color.red);
         if(isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+        }    
+        
+        //si on est dans les airs ou pas
+        if (isGrounded)      
+            animator.SetBool("isInTheAir", false);      
+        else
+            animator.SetBool("isInTheAir", true);
+        
+        //show the weapon
+        if (animator.GetInteger("Weapon") == 1)
+            Weapon.SetActive(true);
+        else
+            Weapon.SetActive(false);
+        
+        //Change Weapon
+        if (equipement.GetComponent<EquipmentManager>().currentEquipment[2] == null)
+            animator.SetInteger("Weapon", 0);
+        else
+            animator.SetInteger("Weapon",(int) equipement.GetComponent<EquipmentManager>().currentEquipment[2].weapontype);
+        
+        
+        //If in the inventory, you cannot do anything
+        //
+        //
+        if (inventoryUI.activeSelf)
+        {
+            animator.SetBool("isRunning", false);
+            velocity.y = -2f;
+            return;
         }
+        
+        lShiftPressed = Input.GetKeyDown(KeyCode.LeftShift);
+        jumpPressed = Input.GetKeyDown(KeyCode.Space);
+        isAttackPressed = Input.GetKeyDown(KeyCode.Mouse0);
+
 
         //saut
         if (jumpPressed && isGrounded)
@@ -82,14 +111,7 @@ public class UnarmedCharacter : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        //show the weapon
-        if (animator.GetInteger("Weapon") == 1)
-
-            Weapon.SetActive(true);
-        else
-            Weapon.SetActive(false);
-
-     
+        
         //roll
         if (lShiftPressed)
             animator.SetBool("Roll", true);
@@ -123,14 +145,7 @@ public class UnarmedCharacter : MonoBehaviour
         {
             animator.SetBool("isRunning", false);
         }
-
         
-
-        //si on est dans les airs ou pas
-        if (isGrounded)      
-            animator.SetBool("isInTheAir", false);      
-        else
-            animator.SetBool("isInTheAir", true);
 
         //Attack
         if (Time.time > nextAttackTime)
@@ -162,6 +177,6 @@ public class UnarmedCharacter : MonoBehaviour
                 }
             }
         }
-
+        
     }
 }

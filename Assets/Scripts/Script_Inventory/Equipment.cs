@@ -13,6 +13,7 @@ public class Equipment : Item
     {
         base.Use();
         EquipmentManager.instance.Equip(this);
+        Debug.Log("Equiped" + this);
         RemoveFromInventory();
     }
 }

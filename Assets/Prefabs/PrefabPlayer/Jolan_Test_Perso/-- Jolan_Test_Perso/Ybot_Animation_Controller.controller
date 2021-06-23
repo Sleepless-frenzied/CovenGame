@@ -5274,7 +5274,7 @@ AnimatorController:
   - m_Name: Weapon
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 1
+    m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: isRunning
@@ -6369,12 +6369,12 @@ AnimatorStateMachine:
   - {fileID: 1418633677614484586}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -4225807297675075458}
-    second:
-    - {fileID: 5941095088900990124}
   - first: {fileID: 6123858641960617790}
     second:
     - {fileID: 8812808472920056811}
+  - first: {fileID: -4225807297675075458}
+    second:
+    - {fileID: 5941095088900990124}
   - first: {fileID: 8381574161699865399}
     second:
     - {fileID: -1495459383327540924}
