@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -53,13 +54,15 @@ public class UnarmedCharacter : MonoBehaviour
         playerStat = gameObject.GetComponent<Coven.PlayerStat>();
     }
 
-
+    //[PunRPC]
     void Update()
     {
         
         //PV and Mana update
         healthBar.fillAmount = health / MaxHealth;
         manaBar.fillAmount = mana / MaxMana;
+        health = health > MaxHealth ? MaxHealth : health;
+        mana = mana > MaxMana ? MaxMana : mana;
              
         //Is grounded ??? and gravity
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -94,6 +97,7 @@ public class UnarmedCharacter : MonoBehaviour
         if (inventoryUI.activeSelf)
         {
             animator.SetBool("isRunning", false);
+            animator.SetBool("isAttacking",false);
             velocity.y = -2f;
             return;
         }
@@ -159,8 +163,13 @@ public class UnarmedCharacter : MonoBehaviour
         {
             playerStat.SetIsHiting(true);
             animator.SetInteger("Attack_NB", Random.Range(0, 6));
-            animator.SetTrigger("Attack");
+            //animator.SetTrigger("Attack");
+            animator.SetBool("isAttacking",true);
             nextAttackTime = Time.time + attackCooldown;
+        }
+        else
+        {
+            animator.SetBool("isAttacking",false);
         }
 
 
