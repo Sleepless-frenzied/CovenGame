@@ -11,7 +11,7 @@ public class InventoryUI : MonoBehaviour
     public GameObject Inventory_UI;
     
     private InventorySlot[] slots;
-
+    
     [SerializeField]private Animator animator;
     // Start is called before the first frame update
     void Start()
