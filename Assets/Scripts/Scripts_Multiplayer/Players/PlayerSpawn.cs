@@ -11,7 +11,7 @@ public class PlayerSpawn : MonoBehaviourPunCallbacks
         var pos = new Vector3(22,1,54);
         var rot = new Quaternion(0, 0, 0,0);
 
-        PhotonNetwork.Instantiate("Player",pos,rot);
+        PhotonNetwork.Instantiate("player",pos,rot);
     }
 
     // Start is called before the first frame update
