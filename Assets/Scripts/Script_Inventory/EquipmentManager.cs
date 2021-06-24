@@ -28,10 +28,6 @@ public class EquipmentManager : MonoBehaviour
 
     //modifiers
     public UnarmedCharacter player;
-    /*private float celerity = 0;
-    private float cooldown = 0;
-    private float maxHealth = 0;
-    private float maxMana = 0;*/
 
     public Transform itemsParent;
     private Inventory inventory;
@@ -126,7 +122,7 @@ public class EquipmentManager : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.U) && transform.GetChild(0).gameObject.activeSelf)
         {
             UnEquipAll();
         }
