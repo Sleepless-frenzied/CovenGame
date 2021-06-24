@@ -18,6 +18,13 @@ public class Hob_Weapon : MonoBehaviour
         if (IsHiting && collision.gameObject == script.GetTarget())
         {
             Debug.Log("hit");
+            if (Random.Range(0,10)==1)
+            {
+                collision.gameObject.GetComponent<UnarmedCharacter>().status = Status.Stunned;
+            }
+            StopCoroutine(collision.gameObject.GetComponent<PlayerStat>().coroutine);
+            collision.gameObject.GetComponent<PlayerStat>().SetDOT_Time(2);
+            collision.gameObject.GetComponent<PlayerStat>().coroutine = StartCoroutine(collision.gameObject.GetComponent<PlayerStat>().GetOverTime());
             script.ApplyDamage(collision.gameObject);
             IsHiting = false;
         }
