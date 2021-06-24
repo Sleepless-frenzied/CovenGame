@@ -6,13 +6,15 @@ using UnityEngine;
 { 
 public class PlayerStat : MonoBehaviour 
 { 
+    public Coroutine coroutine;
     protected UnarmedCharacter player;
     protected bool isHiting;
     protected GameObject weapon;
     protected Animator animator;
     protected GameObject HitFrom;
     protected float death;
-    protected int stability; 
+    protected int stability;
+    protected float DOT_Time;
     protected int knockBack=10; 
     public int GetDamage() 
     { 
@@ -22,6 +24,14 @@ public class PlayerStat : MonoBehaviour
     { 
         return knockBack; 
     } 
+    public IEnumerator GetOverTime()
+    {
+        return OverTime();
+    }
+    public void SetDOT_Time(float time)
+    {
+        DOT_Time = time;
+    }
     public void SetIsHiting(bool isHiting)
     {
         PlayerWeapon script = weapon.GetComponent<PlayerWeapon>();
@@ -52,13 +62,22 @@ public class PlayerStat : MonoBehaviour
     { 
         OurTarget.SendMessage("TakeDamage",this); 
     } 
- 
+  
     void Start() 
     { 
         player = gameObject.GetComponent<UnarmedCharacter>();
         animator = gameObject.GetComponent<Animator>();
         weapon = player.Weapon;
+        coroutine = StartCoroutine(OverTime());
     } 
+    IEnumerator OverTime()
+    {
+        for (int i = 0; i < DOT_Time; i++)
+        {
+            yield return new WaitForSeconds(1);
+        }
+        player.status= Status.Healthy;
+    }
     void Update()
     {
         if (tag=="dead" && death<=Time.time && GameObject.FindGameObjectsWithTag("Player").Length==0)
@@ -67,6 +86,14 @@ public class PlayerStat : MonoBehaviour
             animator.SetBool("Dead",false);
             tag="Player";
             player.health = player.MaxHealth;
+        }
+        if(tag=="Player" && player.status==Status.Stunned)
+        {
+            animator.SetBool("Dead",true);
+        }
+        if (tag=="Player" && player.status!=Status.Stunned)
+        {
+            animator.SetBool("Dead",false);
         }
     }
 } }
