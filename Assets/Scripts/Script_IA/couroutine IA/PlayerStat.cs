@@ -24,7 +24,9 @@ public class PlayerStat : MonoBehaviour
     } 
     public void SetIsHiting(bool isHiting)
     {
-        this.isHiting = isHiting;
+        PlayerWeapon script = weapon.GetComponent<PlayerWeapon>();
+        script.SetIsHiting(isHiting);
+        script.SetPlayer(gameObject);
     }
     public void SetHitFrom(GameObject mob)
     {
