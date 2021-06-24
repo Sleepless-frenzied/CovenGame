@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
@@ -46,6 +46,8 @@ public class UnarmedCharacter : MonoBehaviour
     public Image manaBar;
     public GameObject equipement;
     public GameObject inventoryUI;
+
+    public Status status = Status.Healthy;
 
     void Awake()
     {
@@ -191,4 +193,11 @@ public class UnarmedCharacter : MonoBehaviour
         }
         
     }
+}
+public enum Status
+{
+    Healthy,
+    Poisoned,
+    Burned,
+    Stunned,
 }
