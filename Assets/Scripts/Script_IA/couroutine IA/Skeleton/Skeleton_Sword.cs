@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace classEnemyC 
+namespace Coven
 { 
 public class Skeleton_Sword : MonoBehaviour
 {

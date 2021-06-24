@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic; 
 using UnityEngine; 
  
-namespace classEnemyC 
+namespace Coven
 { 
     public abstract class enemy_couroutine : MonoBehaviour 
     { 

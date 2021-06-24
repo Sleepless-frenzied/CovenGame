@@ -7,6 +7,7 @@ public class Item : ScriptableObject
     public Sprite icon = null;
     public bool isDefaultItem = false;
     public string description;
+    
 
     public virtual void Use()
     {

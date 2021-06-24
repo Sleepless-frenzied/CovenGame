@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
@@ -15,6 +15,7 @@ public class UnarmedCharacter : MonoBehaviour
     //interact
     public LayerMask interactionMask;
     public Camera camInteract;
+    protected Coven.PlayerStat playerStat;
 
     //jump attributes and gravity
     public bool isGrounded;
@@ -46,10 +47,13 @@ public class UnarmedCharacter : MonoBehaviour
     public GameObject equipement;
     public GameObject inventoryUI;
 
+    public Status status = Status.Healthy;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
         animator.SetBool("Acting", false);
+        playerStat = gameObject.GetComponent<Coven.PlayerStat>();
     }
 
     //[PunRPC]
@@ -159,6 +163,7 @@ public class UnarmedCharacter : MonoBehaviour
 
         if (isAttackPressed && isGrounded && Time.time > nextAttackTime)
         {
+            playerStat.SetIsHiting(true);
             animator.SetInteger("Attack_NB", Random.Range(0, 6));
             //animator.SetTrigger("Attack");
             animator.SetBool("isAttacking",true);
@@ -188,4 +193,11 @@ public class UnarmedCharacter : MonoBehaviour
         }
         
     }
+}
+public enum Status
+{
+    Healthy,
+    Poisoned,
+    Burned,
+    Stunned,
 }
