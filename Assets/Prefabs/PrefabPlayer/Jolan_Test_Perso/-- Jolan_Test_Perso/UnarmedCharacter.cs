@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Realtime;
+using Photon.Pun;
 
-public class UnarmedCharacter : MonoBehaviour
+public class UnarmedCharacter : MonoBehaviourPunCallbacks
 {
     //movement attributes
     public CharacterController controller;
@@ -16,7 +18,7 @@ public class UnarmedCharacter : MonoBehaviour
     //interact
     public LayerMask interactionMask;
     public Camera camInteract;
-    protected Coven.PlayerStat playerStat;
+    public Coven.PlayerStat playerStat;
 
     //jump attributes and gravity
     public bool isGrounded;
@@ -63,7 +65,10 @@ public class UnarmedCharacter : MonoBehaviour
     //[PunRPC]
     void Update()
     {
-        
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         //PV and Mana update
         healthBar.fillAmount = health / MaxHealth;
         manaBar.fillAmount = mana / MaxMana;

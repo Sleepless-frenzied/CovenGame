@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class Saving : MonoBehaviour
 {
-	public void Serialize(Player player)
+	public void save (UnarmedCharacter player, int slot)
 	{
-		var _name = player.NickName;
-		var _properties = player.CustomProperties;
+		var damagePower = player.damagePower;
+		var armorPower = player.armorPower;
+		var healt = player.health;
+		var mana = player.mana;
+		int status = (int) player.status;
 		
 	}
 }
