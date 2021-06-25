@@ -64,7 +64,6 @@ public class EquipmentManager : MonoBehaviour
         
         ChangeStat(newItem,true);
         currentEquipment[slotIndex] = newItem;
-        Debug.Log(newItem.celerityModifier + "" + newItem.cooldownModifier + "" + newItem.healthModifier + "" + newItem.manaModifier);
         slots[slotIndex].AddItem(newItem);
         
     }
