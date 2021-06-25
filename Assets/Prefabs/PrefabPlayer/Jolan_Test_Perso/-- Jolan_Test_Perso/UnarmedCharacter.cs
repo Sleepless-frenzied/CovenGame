@@ -209,4 +209,5 @@ public enum Status
     Poisoned,
     Burned,
     Stunned,
+    Bleeding,
 }
