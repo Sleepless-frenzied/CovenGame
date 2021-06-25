@@ -94,10 +94,10 @@ public class UnarmedCharacter : MonoBehaviour
             Weapon.SetActive(false);
         
         //Change Weapon
-        if (equipement.GetComponent<EquipmentManager>().currentEquipment[2] == null)
+        /*if (equipement.GetComponent<EquipmentManager>().currentEquipment[2] == null)
             animator.SetInteger("Weapon", 0);
         else
-            animator.SetInteger("Weapon",(int) equipement.GetComponent<EquipmentManager>().currentEquipment[2].weapontype);
+            animator.SetInteger("Weapon",(int) equipement.GetComponent<EquipmentManager>().currentEquipment[2].weapontype);*/
         
         
         //If in the inventory, you cannot do anything

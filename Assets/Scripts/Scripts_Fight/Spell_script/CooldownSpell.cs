@@ -57,7 +57,6 @@ public class CooldownSpell : MonoBehaviour
         {
             animator.SetBool("isSpell", true);
             image.fillAmount = 1;
-            Debug.Log(cooldown);
             _castSpell.WhatSpell(spellNb, manaCost);
         }
         else
