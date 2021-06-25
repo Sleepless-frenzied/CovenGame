@@ -45,20 +45,19 @@ public class CastSpecial : MonoBehaviour
     {
         player.mana -= manaCost;
         GameObject theSpell = Instantiate(specialAnim[spellNb], transform);
-        Destroy(theSpell, 4);
     }
     
     private void Special2(int spellNb, float manaCost)
     {
         player.mana -= manaCost;
         GameObject theSpell = Instantiate(specialAnim[spellNb], player.targetSpell.transform.position, transform.rotation);
-        Destroy(theSpell, 5);
+        theSpell.GetComponent<Rigidbody>().AddForce(transform.forward * 400);
     }
     
     private void Special3(int spellNb, float manaCost)
     {
         player.mana -= manaCost;
-        GameObject theSpell = Instantiate(specialAnim[spellNb], player.targetSpell.transform.position, transform.rotation);
+        GameObject theSpell = Instantiate(specialAnim[spellNb], transform);
         Destroy(theSpell, 2);
     }
     
@@ -66,5 +65,6 @@ public class CastSpecial : MonoBehaviour
     {
         player.mana -= manaCost;
         GameObject theSpell = Instantiate(specialAnim[spellNb], transform);
+        Destroy(theSpell, 0.5f);
     }
 }

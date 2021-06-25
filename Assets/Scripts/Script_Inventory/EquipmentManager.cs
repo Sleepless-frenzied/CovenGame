@@ -109,6 +109,10 @@ public class EquipmentManager : MonoBehaviour
             player.attackCooldown -= equipment.cooldownModifier;
             player.MaxHealth += equipment.healthModifier;
             player.MaxMana += equipment.manaModifier;
+            player.manaRegen += equipment.manaRegenModifier;
+            player.healthRegen += equipment.healthRegenModifier;
+            player.damagePower += equipment.damageModifier;
+            player.armorPower += equipment.armorModifier;
         }
         else
         {
@@ -116,6 +120,10 @@ public class EquipmentManager : MonoBehaviour
             player.attackCooldown += equipment.cooldownModifier;
             player.MaxHealth -= equipment.healthModifier;
             player.MaxMana -= equipment.manaModifier;
+            player.manaRegen -= equipment.manaRegenModifier;
+            player.healthRegen -= equipment.healthRegenModifier;
+            player.damagePower -= equipment.damageModifier;
+            player.armorPower -= equipment.armorModifier;
         }
     }
     

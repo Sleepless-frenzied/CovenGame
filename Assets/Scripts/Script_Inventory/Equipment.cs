@@ -13,6 +13,8 @@ public class Equipment : Item
     public float cooldownModifier;
     public float manaModifier;
     public float healthModifier;
+    public float manaRegenModifier;
+    public float healthRegenModifier;
     public override void Use()
     {
         base.Use();
