@@ -5,18 +5,32 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="New Equipment",menuName = "Inventory/Equipment")]
 public class Equipment : Item
 {
-    public EquipmentSlot equipSlot;
+    public Equipments equipSlot;
+    public WeaponType weapontype = WeaponType.None;
     public int armorModifier;
     public int damageModifier;
+    public float celerityModifier;
+    public float cooldownModifier;
+    public float manaModifier;
+    public float healthModifier;
     public override void Use()
     {
         base.Use();
         EquipmentManager.instance.Equip(this);
+        Debug.Log("Equiped" + this);
         RemoveFromInventory();
     }
 }
 
-public enum EquipmentSlot
+public enum WeaponType
+{
+    None,
+    Sword,
+    Spear,
+    Hammer,
+    DoubleSword
+}
+public enum Equipments
 {
     Head,
     Chest,

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic; 
 using UnityEngine; 
  
-namespace classEnemyC 
+namespace Coven
 { 
     public abstract class enemy_couroutine : MonoBehaviour 
     { 
@@ -29,7 +29,7 @@ namespace classEnemyC
         public abstract void chase(); 
         public abstract IEnumerator fighting(); 
         public abstract IEnumerator CheckEntity();
-        public void ApplyDamage() 
+        public void ApplyDamage(GameObject target) 
         { 
             PlayerStat script =target.GetComponent<PlayerStat>();
             script.TakeDamage(attack_dammage,KbForces);

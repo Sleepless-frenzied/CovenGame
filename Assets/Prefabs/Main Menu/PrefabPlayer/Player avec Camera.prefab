@@ -1331,7 +1331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3443975124102640362}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player avec Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1524,7 +1524,7 @@ Animator:
   m_GameObject: {fileID: 4141244847688723712}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 765f9cded7741d247949c45b5bca0a4f, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1542,13 +1542,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4141244847688723712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 428ce6aa8fcb6c34884486245c18370f, type: 3}
+  m_Script: {fileID: 11500000, guid: 90205ad78aec5d94891423db7da843fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 3
-  runSpeed: 6
-  turnSpeed: 200
-  jumpSpeed: {x: 0, y: 0, z: 0}
+  animator: {fileID: 8069240511907473337}
+  Healthbar: {fileID: 0}
 --- !u!1 &4232470446098271835
 GameObject:
   m_ObjectHideFlags: 0

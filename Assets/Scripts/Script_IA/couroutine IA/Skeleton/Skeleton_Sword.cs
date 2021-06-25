@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace classEnemyC 
+namespace Coven
 { 
 public class Skeleton_Sword : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class Skeleton_Sword : MonoBehaviour
         if (IsHiting && collision.gameObject == script.GetTarget())
         {
             Debug.Log("hit");
-            script.ApplyDamage();
+            script.ApplyDamage(collision.gameObject);
             IsHiting = false;
         }
     }

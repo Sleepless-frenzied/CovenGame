@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic; 
 using System; 
 using UnityEngine; 
-namespace classEnemyC 
+namespace Coven
 { 
     public class IA_Albinos_code : enemy_couroutine 
     { 
@@ -60,7 +60,7 @@ namespace classEnemyC
             accel=0;
             fight = false; 
             System.Random random = new System.Random();
-            switch (random.Next(9)) 
+            switch (random.Next(15)) 
             { 
                 case 1 : for (int i = 0; i < 10; i++) 
                 { 
@@ -74,6 +74,11 @@ namespace classEnemyC
                 case 3 : 
                          FireAttack();
                          break;
+                case 4 : for (int i = 0; i < 10; i++) 
+                { 
+                    WalkTo(transform.position); 
+                    yield return new WaitForFixedUpdate(); 
+                }  break;
                 default: attack();
                          break;
             } 
@@ -88,7 +93,7 @@ namespace classEnemyC
                 System.Random random = new System.Random();
                 if (random.Next(2)==1)
                 {
-                    animator.Play("Basic attack");
+                    animator.SetTrigger("Basic attack");
                 }
                 else {animator.Play("Claw Attack");}
                 HitboxHit script = weapon.GetComponent<HitboxHit>(); 
