@@ -65,10 +65,6 @@ public class UnarmedCharacter : MonoBehaviourPunCallbacks
     //[PunRPC]
     void Update()
     {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
         //PV and Mana update
         healthBar.fillAmount = health / MaxHealth;
         manaBar.fillAmount = mana / MaxMana;

@@ -16714,6 +16714,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   camInteract: {fileID: 8777330322514204411}
+  playerStat: {fileID: 0}
   isGrounded: 0
   airSpeed: 3
   groundCheck: {fileID: 7078020158332737524}
@@ -18403,6 +18404,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb05ad5fb0c74c4d8c46df5f57cc024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 8777330322493942924}
+  player: {fileID: 8033448063625239670}
+  UI: {fileID: 8041113630131324986}
 --- !u!114 &1365818517314091888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18421,7 +18425,9 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 8223163457897049978}
+  - {fileID: 1117328482914013857}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
