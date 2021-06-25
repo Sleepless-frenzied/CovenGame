@@ -16645,6 +16645,7 @@ GameObject:
   - component: {fileID: 6198116698758221905}
   - component: {fileID: 7078020157475417733}
   - component: {fileID: 2505190905266557830}
+  - component: {fileID: 3144149033720219756}
   m_Layer: 0
   m_Name: Ybot
   m_TagString: Player
@@ -16774,6 +16775,24 @@ MonoBehaviour:
   - {fileID: 4655010709896092336, guid: ff92909a9dcf7974e8a5648aa84e6dd8, type: 3}
   - {fileID: 6898157200790417981, guid: c9172f1bc60f29c4da13963097ba01dc, type: 3}
   - {fileID: 987913351340800833, guid: 56208a45b5e87ea4295393c8e3d9342d, type: 3}
+--- !u!114 &3144149033720219756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8033448063625239670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717e5480c41eb3845b533fdb361076ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialAnim:
+  - {fileID: 8368853444770637472, guid: f71e996ab3cb21d44a8c9d075569555c, type: 3}
+  - {fileID: 5950232680979584458, guid: 9d44178a07a2ebe4f91b694f25ac8ee4, type: 3}
+  - {fileID: 4324377396745575325, guid: 04961c59c53cede45b8922ba0c3b269c, type: 3}
+  - {fileID: 1322690183939124692, guid: 4407996d154083340a1702d54dafe9a7, type: 3}
+  - {fileID: 8730828877969787617, guid: d72e0b6ebc75b944d8522773be9567e6, type: 3}
 --- !u!1 &8041113629428275396
 GameObject:
   m_ObjectHideFlags: 0
