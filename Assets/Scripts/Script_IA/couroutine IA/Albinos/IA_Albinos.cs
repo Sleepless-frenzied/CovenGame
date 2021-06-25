@@ -40,6 +40,14 @@ public class IA_Albinos : MonoBehaviour
                     transform.LookAt (Targetposition);  
                 } 
         }
+        if (Albinos.GetTarget()!=null && Albinos.GetAllow_action() - Time.time<=3)
+        {
+            Animator animationPlayer = Albinos.GetTarget().GetComponent<Animator>();
+            if (animationPlayer.GetBool("Dead"))
+            {
+                animationPlayer.SetBool("Dead",false);
+            }
+        }
     } 
 } 
 } 
