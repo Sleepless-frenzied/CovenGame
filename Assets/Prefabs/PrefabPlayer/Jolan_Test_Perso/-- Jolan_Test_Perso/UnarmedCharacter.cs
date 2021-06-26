@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
@@ -5,7 +6,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Realtime;
 using Photon.Pun;
+using Random = UnityEngine.Random;
 
+[Serializable]
 public class UnarmedCharacter : MonoBehaviourPunCallbacks
 {
     //movement attributes

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using Photon.Pun.Demo.Cockpit;
 using UnityEngine;
 using UnityEngine.XR.WSA;
 
-public class ConsumableManager : MonoBehaviour
+public class ConsumableManager : MonoBehaviourPunCallbacks
 {
     
     #region Singleton
