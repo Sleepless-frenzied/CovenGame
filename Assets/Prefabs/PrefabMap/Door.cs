@@ -9,5 +9,6 @@ public class Door : Interactable
     public override void Interact()
     {
         animator.SetTrigger("Door");
+        Debug.Log("door");
     }
 }
