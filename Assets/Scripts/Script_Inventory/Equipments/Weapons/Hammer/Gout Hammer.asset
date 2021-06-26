@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5da1a272f1b79942b78c8ccc2e3b072, type: 3}
   m_Name: Gout Hammer
   m_EditorClassIdentifier: 
-  name: Gout Hammer
+  name: "Go\xFBt Hammer"
   icon: {fileID: 21300000, guid: 86f4a4ab62631d9449621dff11e762f5, type: 3}
   isDefaultItem: 0
-  description: Increase Damage, MaxMana, MaxHealth
+  description: Damage +30, MaxMana +30
+  idWeapon: 7
   equipSlot: 2
   weapontype: 3
   armorModifier: 0

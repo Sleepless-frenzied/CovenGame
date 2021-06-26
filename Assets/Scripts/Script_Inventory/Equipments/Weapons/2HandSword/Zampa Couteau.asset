@@ -15,13 +15,14 @@ MonoBehaviour:
   name: Zampa Couteau
   icon: {fileID: 21300000, guid: a2bcc88f94981eb4d8eceb8d65771717, type: 3}
   isDefaultItem: 0
-  description: Increase Damage and Mana and Cooldown
+  description: Damage +50, Cooldown +0.3, MaxMana +30
+  idWeapon: 2
   equipSlot: 2
   weapontype: 1
   armorModifier: 0
-  damageModifier: 40
+  damageModifier: 50
   celerityModifier: 0
-  cooldownModifier: -0.5
+  cooldownModifier: -0.3
   manaModifier: 30
   healthModifier: 0
   manaRegenModifier: 0

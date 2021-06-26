@@ -15,14 +15,14 @@ MonoBehaviour:
   name: Strength Ring
   icon: {fileID: 21300000, guid: 0f1303cfff6593747a97f9c964728649, type: 3}
   isDefaultItem: 0
-  description: Increase MaxHealth and Damage
+  description: Increase MaxHealth and Damage, but Decrease HealthRegen
   equipSlot: 3
   weapontype: 0
   armorModifier: 0
-  damageModifier: 5
+  damageModifier: 10
   celerityModifier: 0
   cooldownModifier: 0
   manaModifier: 0
   healthModifier: 20
   manaRegenModifier: 0
-  healthRegenModifier: 0
+  healthRegenModifier: -0.08

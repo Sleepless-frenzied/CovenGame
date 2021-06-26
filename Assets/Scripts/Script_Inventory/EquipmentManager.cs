@@ -21,9 +21,9 @@ public class EquipmentManager : MonoBehaviour
 
 
 
-    public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
+    /*public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
 
-    public OnEquipmentChanged onEquipmentChanged;
+    public OnEquipmentChanged onEquipmentChanged;*/
 
 
     //modifiers
@@ -33,9 +33,8 @@ public class EquipmentManager : MonoBehaviour
     private Inventory inventory;
     public Equipment[] currentEquipment;
     private EquipmentSlot[] slots;
+    public bool changeWeapon;
     
-    
-
     
 
     private void Start()
@@ -54,15 +53,25 @@ public class EquipmentManager : MonoBehaviour
         if (currentEquipment[slotIndex] != null)
         {
             oldItem = currentEquipment[slotIndex];
+            ChangeStat(oldItem,false);
             inventory.Add(oldItem);
+            Debug.Log("changé entre deux");
         }
         
-        if (onEquipmentChanged != null)
+        /*if (onEquipmentChanged != null)
         {
             onEquipmentChanged.Invoke(newItem,oldItem);
-        }
+            ChangeStat(newItem,true);
+            ChangeStat(oldItem,false);
+            
+        }*/
         
+        if (slotIndex == 2)
+        {
+            changeWeapon = true;
+        }
         ChangeStat(newItem,true);
+        Debug.Log("changé seul");
         currentEquipment[slotIndex] = newItem;
         slots[slotIndex].AddItem(newItem);
         
@@ -73,14 +82,18 @@ public class EquipmentManager : MonoBehaviour
         if (currentEquipment[slotIndex] != null)
         {
             ChangeStat(currentEquipment[slotIndex], false);
+            if (slotIndex == 2)
+            {
+                changeWeapon = true;
+            }
             
             Equipment oldItem = currentEquipment[slotIndex];
             inventory.Add(oldItem);
 
-            if (onEquipmentChanged != null)
+            /*if (onEquipmentChanged != null)
             {
                 onEquipmentChanged.Invoke(null,oldItem);
-            }
+            }*/
             currentEquipment[slotIndex] = null;
         }
         

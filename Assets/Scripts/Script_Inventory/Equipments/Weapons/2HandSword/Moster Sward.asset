@@ -15,14 +15,14 @@ MonoBehaviour:
   name: Moster Sward
   icon: {fileID: 21300000, guid: 5bfb766ff8d9482479248b2c48378889, type: 3}
   isDefaultItem: 0
-  description: Increase Damage and HealthRegen
+  description: Damage +30,  MaxMana +10, Armor +10, HealthRegen +0.05
   equipSlot: 2
   weapontype: 1
-  armorModifier: 0
+  armorModifier: 10
   damageModifier: 30
   celerityModifier: 0
   cooldownModifier: 0
-  manaModifier: 0
+  manaModifier: 10
   healthModifier: 0
   manaRegenModifier: 0
-  healthRegenModifier: 0.08
+  healthRegenModifier: 0.05

@@ -29,7 +29,6 @@ public class UnarmedCharacter : MonoBehaviour
     public float jumpHeight = 6f;
 
     //fight attributes
-    public GameObject Weapon;
     Animator animator;
     public bool isAttackPressed;
     bool lShiftPressed;
@@ -65,7 +64,14 @@ public class UnarmedCharacter : MonoBehaviour
     //[PunRPC]
     void Update()
     {
-        //PV and Mana update
+        //If is dead;
+        if (health <= 0)
+        {
+            animator.SetTrigger("Dead");
+            return;
+        }
+        
+        //PV and Mana update (and Cooldown)
         healthBar.fillAmount = health / MaxHealth;
         manaBar.fillAmount = mana / MaxMana;
         mana += manaRegen;
@@ -74,6 +80,7 @@ public class UnarmedCharacter : MonoBehaviour
         mana = mana > MaxMana ? MaxMana : mana;
         health = health <= 0 ? 0 : health;
         mana = mana <= 0 ? 0 : mana;
+        attackCooldown = attackCooldown <= 0 ? 0.1f : attackCooldown;
              
         //Is grounded ??? and gravity
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -89,11 +96,6 @@ public class UnarmedCharacter : MonoBehaviour
         else
             animator.SetBool("isInTheAir", true);
         
-        //show the weapon
-        if (animator.GetInteger("Weapon") == 1)
-            Weapon.SetActive(true);
-        else
-            Weapon.SetActive(false);
         
         //Change Weapon
         if (equipement.GetComponent<EquipmentManager>().currentEquipment[2] == null)

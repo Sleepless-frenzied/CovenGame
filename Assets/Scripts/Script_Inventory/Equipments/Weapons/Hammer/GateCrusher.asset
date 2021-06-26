@@ -15,7 +15,8 @@ MonoBehaviour:
   name: GateCrusher
   icon: {fileID: 21300000, guid: d8895a01c025a76418de5bf40b0cd906, type: 3}
   isDefaultItem: 0
-  description: Increase a lot Damage, MaxHealth, but take damage over time
+  description: Damage +60, MaxHealth +20, HealthRegen -0.1
+  idWeapon: 6
   equipSlot: 2
   weapontype: 3
   armorModifier: 0

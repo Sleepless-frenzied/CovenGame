@@ -53,7 +53,7 @@ public class CooldownSpecial : MonoBehaviour
                 break;
         }
 
-        if (Input.GetKeyDown(KeyCode.A) && image.fillAmount <= 0 && player.mana >= manaCost && animator.GetBool("CanAttack") && !animator.GetBool("isInTheAir"))
+        if (Input.GetKeyDown(KeyCode.A) && image.fillAmount <= 0 && animator.GetBool("CanAttack") && !animator.GetBool("isInTheAir"))
         {
             animator.SetBool("isSpecial", true);
             image.fillAmount = 1;
@@ -64,6 +64,6 @@ public class CooldownSpecial : MonoBehaviour
             animator.SetBool("isSpecial", false);
         }
         
-        image.fillAmount -= Time.deltaTime * 1 / cooldown;
+        image.fillAmount -= Time.deltaTime * 1 / (cooldown * player.attackCooldown);
     }
 }
