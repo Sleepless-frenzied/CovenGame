@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Special0Collision : MonoBehaviour
 {
-    
     private float duration = 6;
     private UnarmedCharacter player;
     private Animator animator;

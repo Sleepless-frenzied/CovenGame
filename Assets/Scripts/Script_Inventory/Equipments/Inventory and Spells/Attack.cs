@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class Attack : MonoBehaviour
 {
-    public UnarmedCharacter player;
     public Animator animator;
     public Image image;
     public Sprite[] allImage;
     public bool spell;
+    public bool special;
+    public EquipmentManager equipment;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,12 @@ public class Attack : MonoBehaviour
     {
         if (spell)
             image.sprite = allImage[animator.GetInteger("Spell")];
+        else if (special)
+            image.sprite = allImage[animator.GetInteger("Weapon")];
+        else if (equipment.currentEquipment[2] != null)
+            image.sprite = equipment.currentEquipment[2].icon;
         else
             image.sprite = allImage[animator.GetInteger("Weapon")];
+            
     }
 }

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5da1a272f1b79942b78c8ccc2e3b072, type: 3}
+  m_Name: Moster Sward
+  m_EditorClassIdentifier: 
+  name: Moster Sward
+  icon: {fileID: 21300000, guid: 5bfb766ff8d9482479248b2c48378889, type: 3}
+  isDefaultItem: 0
+  description: Damage +30,  MaxMana +10, Armor +10, HealthRegen +0.05
+  equipSlot: 2
+  weapontype: 1
+  armorModifier: 10
+  damageModifier: 30
+  celerityModifier: 0
+  cooldownModifier: 0
+  manaModifier: 10
+  healthModifier: 0
+  manaRegenModifier: 0
+  healthRegenModifier: 0.05

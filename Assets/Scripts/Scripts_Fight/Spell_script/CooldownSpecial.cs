@@ -32,12 +32,12 @@ public class CooldownSpecial : MonoBehaviour
         switch (specialNb)
         {
             case 0:
-                cooldown = 10;
+                cooldown = 15;
                 manaCost = 20;
                 break;
             case 1:
-                cooldown = 6;
-                manaCost = 25;
+                cooldown = 15;
+                manaCost = 50;
                 break;
             case 2:
                 cooldown = 10;
@@ -53,17 +53,17 @@ public class CooldownSpecial : MonoBehaviour
                 break;
         }
 
-        if (Input.GetKeyDown(KeyCode.A) && image.fillAmount <= 0 && player.mana >= manaCost && animator.GetBool("CanAttack"))
+        if (Input.GetKeyDown(KeyCode.A) && image.fillAmount <= 0 && animator.GetBool("CanAttack") && !animator.GetBool("isInTheAir"))
         {
-            animator.SetBool("isSpell", true);
+            animator.SetBool("isSpecial", true);
             image.fillAmount = 1;
             _castSpecial.WhatSpecial(specialNb, manaCost);
         }
         else
         {
-            animator.SetBool("isSpell", false);
+            animator.SetBool("isSpecial", false);
         }
         
-        image.fillAmount -= Time.deltaTime * 1 / cooldown;
+        image.fillAmount -= Time.deltaTime * 1 / (cooldown * player.attackCooldown);
     }
 }

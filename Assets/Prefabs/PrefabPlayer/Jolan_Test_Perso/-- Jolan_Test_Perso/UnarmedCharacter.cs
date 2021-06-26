@@ -29,7 +29,6 @@ public class UnarmedCharacter : MonoBehaviour
     public float jumpHeight = 6f;
 
     //fight attributes
-    public GameObject Weapon;
     Animator animator;
     public bool isAttackPressed;
     bool lShiftPressed;
@@ -39,6 +38,8 @@ public class UnarmedCharacter : MonoBehaviour
     public float celerity = 1;
 
     //generic attributes
+    public float manaRegen = 0.05f;
+    public float healthRegen = 0;
     public float damagePower = 15;
     public float armorPower = 15;
     public float MaxHealth = 100;
@@ -63,15 +64,23 @@ public class UnarmedCharacter : MonoBehaviour
     //[PunRPC]
     void Update()
     {
+        //If is dead;
+        if (health <= 0)
+        {
+            animator.SetTrigger("Dead");
+            return;
+        }
         
-        //PV and Mana update
+        //PV and Mana update (and Cooldown)
         healthBar.fillAmount = health / MaxHealth;
         manaBar.fillAmount = mana / MaxMana;
-        mana += 0.05f;
+        mana += manaRegen;
+        health += healthRegen;
         health = health > MaxHealth ? MaxHealth : health;
         mana = mana > MaxMana ? MaxMana : mana;
         health = health <= 0 ? 0 : health;
         mana = mana <= 0 ? 0 : mana;
+        attackCooldown = attackCooldown <= 0 ? 0.1f : attackCooldown;
              
         //Is grounded ??? and gravity
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -87,23 +96,18 @@ public class UnarmedCharacter : MonoBehaviour
         else
             animator.SetBool("isInTheAir", true);
         
-        //show the weapon
-        if (animator.GetInteger("Weapon") == 1)
-            Weapon.SetActive(true);
-        else
-            Weapon.SetActive(false);
         
         //Change Weapon
-        /*if (equipement.GetComponent<EquipmentManager>().currentEquipment[2] == null)
+        if (equipement.GetComponent<EquipmentManager>().currentEquipment[2] == null)
             animator.SetInteger("Weapon", 0);
         else
-            animator.SetInteger("Weapon",(int) equipement.GetComponent<EquipmentManager>().currentEquipment[2].weapontype);*/
+            animator.SetInteger("Weapon",(int) equipement.GetComponent<EquipmentManager>().currentEquipment[2].weapontype);
         
         
-        //If in the inventory, you cannot do anything
+        //If in the inventory, you cannot do anything,
         //
         //
-        if (inventoryUI.activeSelf)
+        if (inventoryUI.activeSelf || animator.GetBool("isSpecialSword"))
         {
             animator.SetBool("isRunning", false);
             animator.SetBool("isAttacking",false);

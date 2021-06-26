@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5da1a272f1b79942b78c8ccc2e3b072, type: 3}
+  m_Name: Gout Hammer
+  m_EditorClassIdentifier: 
+  name: "Go\xFBt Hammer"
+  icon: {fileID: 21300000, guid: 86f4a4ab62631d9449621dff11e762f5, type: 3}
+  isDefaultItem: 0
+  description: Damage +30, MaxMana +30
+  idWeapon: 7
+  equipSlot: 2
+  weapontype: 3
+  armorModifier: 0
+  damageModifier: 30
+  celerityModifier: 0
+  cooldownModifier: 0
+  manaModifier: 30
+  healthModifier: 30
+  manaRegenModifier: 0
+  healthRegenModifier: 0
