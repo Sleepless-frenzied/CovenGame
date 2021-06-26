@@ -39,42 +39,58 @@ public class CastSpell : MonoBehaviour
 
     //Regen de PV
     private void Spell0(int spellNb, float manaCost)
-    { 
-        player.mana -= manaCost;
-        GameObject theSpell = Instantiate(spellAnim[spellNb], transform);
-        Destroy(theSpell, 1);
+    {
+        if (player.mana >= manaCost)
+        {
+            player.mana -= manaCost;
+            GameObject theSpell = Instantiate(spellAnim[spellNb], transform);
+            Destroy(theSpell, 1);
+        }
     }
     
     //Regen de Mana
     private void Spell1(int spellNb, float manaCost)
     {
         //ce spell coûte des HP
-        player.health -= manaCost;
-        GameObject theSpell = Instantiate(spellAnim[spellNb], transform);
-        Destroy(theSpell, 2);
-        
+        if (player.health >= manaCost)
+        {
+            player.health -= manaCost;
+            GameObject theSpell = Instantiate(spellAnim[spellNb], transform);
+            Destroy(theSpell, 2);
+        }
+
     }
     
     //Launch an elementalBall
     private void Spell2(int spellNb, float manaCost)
     {
-        player.mana -= manaCost;
-        GameObject theSpell = Instantiate(spellAnim[spellNb], player.targetSpell.transform.position, transform.rotation);
-        theSpell.GetComponent<Rigidbody>().AddForce(player.cam.transform.forward * 800);
+        if (player.mana >= manaCost)
+        {
+            player.mana -= manaCost;
+            GameObject theSpell = Instantiate(spellAnim[spellNb], player.targetSpell.transform.position,
+                transform.rotation);
+            theSpell.GetComponent<Rigidbody>().AddForce(player.cam.transform.forward * 800);
+        }
     }
     
     //Create a laserOfLight around the player which deals damage and knockback
     private void Spell3(int spellNb, float manaCost)
     {
-        player.mana -= manaCost;
-        GameObject theSpell = Instantiate(spellAnim[spellNb], transform);
-        Destroy(theSpell,1);
+        if (player.mana >= manaCost)
+        {
+            player.mana -= manaCost;
+            GameObject theSpell = Instantiate(spellAnim[spellNb], transform);
+            Destroy(theSpell,1);
+        }
     }
     
     private void Spell4(int spellNb, float manaCost)
     {
-        player.mana -= manaCost;
-        GameObject theSpell = Instantiate(spellAnim[spellNb], transform);
+        if (player.mana >= manaCost)
+        {
+            player.mana -= manaCost;
+            GameObject theSpell = Instantiate(spellAnim[spellNb], transform);
+        }
     }
     
 }

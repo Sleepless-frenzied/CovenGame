@@ -9,7 +9,7 @@ public class PlayerStat : MonoBehaviour
     protected UnarmedCharacter player;
     protected float health;
     protected bool isHiting;
-    protected GameObject weapon;
+    //protected GameObject weapon;
     protected Animator animator;
     protected GameObject HitFrom;
     protected float death;
@@ -66,7 +66,7 @@ public class PlayerStat : MonoBehaviour
     { 
         player = gameObject.GetComponent<UnarmedCharacter>();
         animator = gameObject.GetComponent<Animator>();
-        weapon = player.Weapon;
+        //weapon = player.Weapon;
         health = player.MaxHealth ; 
     } 
     void Update()

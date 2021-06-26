@@ -64,6 +64,6 @@ public class CooldownSpell : MonoBehaviour
             animator.SetBool("isSpell", false);
         }
         
-        image.fillAmount -= Time.deltaTime * 1 / cooldown;
+        image.fillAmount -= Time.deltaTime * 1 / (cooldown * player.attackCooldown);
     }
 }
