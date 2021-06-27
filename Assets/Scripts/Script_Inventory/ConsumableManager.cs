@@ -68,8 +68,7 @@ public class ConsumableManager : MonoBehaviourPunCallbacks
                 buff = Buffs.None;
             }
         }
-
-        //player.playerStat.health = player.health;
+        
     }
 
     public void What(Consumable consumable)
@@ -89,6 +88,7 @@ public class ConsumableManager : MonoBehaviourPunCallbacks
                 WhatBuff(consumable);
                 break;
         }
+        consumable.RemoveFromInventory();
     }
     
     public void Potion(Grade grade)
@@ -118,12 +118,8 @@ public class ConsumableManager : MonoBehaviourPunCallbacks
     }
 
     public void Revive(Consumable consumable)
-    {
-        /*if (player.CompareTag("Player"))
-        {
-           TODO
-        }
-        else */if (player.CompareTag("dead"))
+    { 
+        if (player.CompareTag("dead"))
         {
             player.GetComponent<Animator>().SetBool("Dead",false);
             player.tag = "Player";
