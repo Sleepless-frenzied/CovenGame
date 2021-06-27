@@ -19,7 +19,12 @@ using UnityEngine;
         {
             base.Use();
             ConsumableManager.instance.What(this);
-            RemoveFromInventory();
+            //RemoveFromInventory();
+        }
+
+        public void use2()
+        {
+            ConsumableManager.instance.What(this);
         }
 
         public override string ToString()

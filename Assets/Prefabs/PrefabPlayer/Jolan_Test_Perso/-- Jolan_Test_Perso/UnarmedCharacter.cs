@@ -126,8 +126,23 @@ public class UnarmedCharacter : MonoBehaviourPunCallbacks
             animator.SetInteger("Weapon", 0);
         else
             animator.SetInteger("Weapon",(int) equipement.GetComponent<EquipmentManager>().currentEquipment[2].weapontype);
-        
-        
+
+
+        switch (status)
+        {
+            case Status.Stunned:
+                return;
+            case Status.Healthy:
+                break;
+            default:
+                health -= 5 *Time.deltaTime;
+                break;
+        }
+
+
+
+
+
         //If in the inventory, you cannot do anything,
         //
         //
@@ -236,5 +251,6 @@ public enum Status
     Healthy,
     Poisoned,
     Burned,
-    Stunned
+    Stunned,
+    Bleeding
 }

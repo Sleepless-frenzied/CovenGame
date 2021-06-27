@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Pun.Demo.SlotRacer;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
@@ -35,6 +36,10 @@ public class EquipmentManager : MonoBehaviourPunCallbacks
     public Equipment[] currentEquipment;
     private EquipmentSlot[] slots;
     public bool changeWeapon;
+
+
+    public TMP_Text Wallet_txt;
+    public TMP_Text Stats_txt;
     
     
 
@@ -163,6 +168,13 @@ public class EquipmentManager : MonoBehaviourPunCallbacks
     
     private void Update()
     {
+        Wallet_txt.text = player.Coins + " Coins";
+        Stats_txt.text = "Health:\n " + player.health + "/" + player.MaxHealth + "\nMana:\n " + player.mana + "/" +
+                         player.MaxMana
+                         + "\nHealth regen:\n " + player.healthRegen + "\nMana regen:\n " + player.manaRegen +
+                         "\nDamage power:\n " + player.damagePower +
+                         "\nDefence:\n " + player.armorPower +
+                         "\nCelerity:\n " + player.celerity;
         if (Input.GetKeyDown(KeyCode.U) && transform.GetChild(0).gameObject.activeSelf)
         {
             UnEquipAll();

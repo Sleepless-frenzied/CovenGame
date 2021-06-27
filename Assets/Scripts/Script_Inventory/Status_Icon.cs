@@ -31,6 +31,9 @@ public class Status_Icon : MonoBehaviour
             case 3:
                 image.color = Color.yellow;
                 break;
+            case 4:
+                image.color = Color.red;
+                break;
         }
         image.sprite = allImage[SlotIndex];
     }
