@@ -16,12 +16,12 @@ public class multiWeapon : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (equipment.currentEquipment[2] != null)
         {
             whatWeapon = equipment.currentEquipment[2].idWeapon;
-            if (equipment.changeWeapon)
+            if (equipment.changeWeapon && equipment.currentEquipment[2].weapontype != WeaponType.Unarmed)
             {
                 //destroy all child
                 int childs = transform.childCount;
@@ -32,9 +32,19 @@ public class multiWeapon : MonoBehaviour
             
                 //Instantiate the new weapon
                 Instantiate(allWeapons[whatWeapon], transform);
-            
+
                 equipment.changeWeapon = false;
             }
+            else if (equipment.currentEquipment[2].weapontype == WeaponType.Unarmed)
+            {
+                int childs = transform.childCount;
+                for (int i = 0; i < childs; i++)
+                {
+                    Destroy(transform.GetChild(i).gameObject);
+                }
+                equipment.changeWeapon = false;
+            }
+            
         }
         else
         {
