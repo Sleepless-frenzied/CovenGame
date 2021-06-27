@@ -16603,6 +16603,8 @@ GameObject:
   - component: {fileID: 7078020157475417733}
   - component: {fileID: 2505190905266557830}
   - component: {fileID: 3144149033720219756}
+  - component: {fileID: 1886018673543859609}
+  - component: {fileID: 6381159930606667624}
   m_Layer: 0
   m_Name: Ybot
   m_TagString: Player
@@ -16752,6 +16754,91 @@ MonoBehaviour:
   - {fileID: 4324377396745575325, guid: 04961c59c53cede45b8922ba0c3b269c, type: 3}
   - {fileID: 1322690183939124692, guid: 4407996d154083340a1702d54dafe9a7, type: 3}
   - {fileID: 8730828877969787617, guid: d72e0b6ebc75b944d8522773be9567e6, type: 3}
+--- !u!114 &1886018673543859609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8033448063625239670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 3
+    SynchronizeType: 0
+    Name: Weapon
+  - Type: 4
+    SynchronizeType: 0
+    Name: isRunning
+  - Type: 4
+    SynchronizeType: 0
+    Name: isBack
+  - Type: 3
+    SynchronizeType: 0
+    Name: Attack_NB
+  - Type: 9
+    SynchronizeType: 0
+    Name: Attack
+  - Type: 9
+    SynchronizeType: 0
+    Name: Revive
+  - Type: 9
+    SynchronizeType: 0
+    Name: Dead
+  - Type: 4
+    SynchronizeType: 0
+    Name: isInTheAir
+  - Type: 4
+    SynchronizeType: 0
+    Name: Acting
+  - Type: 4
+    SynchronizeType: 0
+    Name: Roll
+  - Type: 4
+    SynchronizeType: 0
+    Name: Jump
+  - Type: 3
+    SynchronizeType: 0
+    Name: Spell
+  - Type: 4
+    SynchronizeType: 0
+    Name: CanAttack
+  - Type: 4
+    SynchronizeType: 0
+    Name: isAttacking
+  - Type: 4
+    SynchronizeType: 0
+    Name: isSpell
+  - Type: 4
+    SynchronizeType: 0
+    Name: isSpecial
+  - Type: 4
+    SynchronizeType: 0
+    Name: isSpecialSword
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
+--- !u!114 &6381159930606667624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8033448063625239670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &8041113629428275396
 GameObject:
   m_ObjectHideFlags: 0
@@ -18245,6 +18332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8777330323842319260}
   - component: {fileID: 8777330323842319263}
+  - component: {fileID: 2080225702592647985}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -18282,9 +18370,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb05ad5fb0c74c4d8c46df5f57cc024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
-  player: {fileID: 0}
-  UI: {fileID: 0}
+  camera: {fileID: 8777330322493942924}
+  player: {fileID: 8033448063625239670}
+  UI: {fileID: 8041113630131324986}
+--- !u!114 &2080225702592647985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8777330323842319261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8819381310633599816
 GameObject:
   m_ObjectHideFlags: 0
