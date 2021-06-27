@@ -8,7 +8,7 @@ public class PlayerSpawn : MonoBehaviourPunCallbacks
 {   
      void Start()
     {
-        var pos = new Vector3(22,1,54);
+        var pos = new Vector3(34,20,33);
         var rot = new Quaternion(0, 0, 0,0);
 
         PhotonNetwork.Instantiate("player",pos,rot);

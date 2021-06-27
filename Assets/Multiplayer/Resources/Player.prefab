@@ -14427,8 +14427,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: mana / maxMana
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14650,8 +14650,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: health / maxHealth
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16690,15 +16690,17 @@ MonoBehaviour:
   damagePower: 15
   armorPower: 15
   MaxHealth: 100
-  MaxMana: 100
   health: 100
-  mana: 100
   healthBar: {fileID: 7078020157933474803}
+  MaxMana: 100
+  mana: 100
   manaBar: {fileID: 7078020157530616609}
+  Coins: 100
+  status: 0
+  buff: 0
   equipement: {fileID: 8041113630131324986}
   inventoryUI: {fileID: 8041113629455764868}
   targetSpell: {fileID: 1463384397}
-  status: 0
 --- !u!143 &7078020157475417733
 CharacterController:
   m_ObjectHideFlags: 0
@@ -17624,8 +17626,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Inventory
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17815,8 +17817,8 @@ MonoBehaviour:
     varius morbi enim nunc faucibus a pellentesque sit. Accumsan lacus vel facilisis
     volutpat. Leo a diam sollicitudin tempor id eu. Nunc sed id semper risus in.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

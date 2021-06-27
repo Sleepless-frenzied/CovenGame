@@ -13936,7 +13936,7 @@ MonoBehaviour:
     varius morbi enim nunc faucibus a pellentesque sit. Accumsan lacus vel facilisis
     volutpat. Leo a diam sollicitudin tempor id eu. Nunc sed id semper risus in.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -14069,7 +14069,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Inventory
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -14236,15 +14236,17 @@ MonoBehaviour:
   damagePower: 15
   armorPower: 15
   MaxHealth: 100
-  MaxMana: 100
   health: 100
-  mana: 100
   healthBar: {fileID: 8035063479047598594}
+  MaxMana: 100
+  mana: 100
   manaBar: {fileID: 8035063478913848016}
+  Coins: 100
+  status: 0
+  buff: 0
   equipement: {fileID: 7075062942184696267}
   inventoryUI: {fileID: 7075062941249580149}
   targetSpell: {fileID: 988657202737453244}
-  status: 0
 --- !u!143 &8035063478598569844
 CharacterController:
   m_ObjectHideFlags: 0
@@ -18310,9 +18312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb05ad5fb0c74c4d8c46df5f57cc024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
-  player: {fileID: 0}
-  UI: {fileID: 0}
+  camera: {fileID: 8392243569665068413}
+  player: {fileID: 7117059669991619975}
+  UI: {fileID: 7075062942184696267}
 --- !u!114 &7457879830671375087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18331,7 +18333,9 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 744318517273155939}
+  - {fileID: 6839565241635022537}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
