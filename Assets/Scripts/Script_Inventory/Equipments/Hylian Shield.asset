@@ -16,7 +16,12 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 2539e61911ff9d447876e9cd5580302e, type: 3}
   isDefaultItem: 0
   description: Bouclier
+  Price: 100
   equipSlot: 3
   weapontype: 0
   armorModifier: 2147483647
   damageModifier: 0
+  celerityModifier: 0
+  cooldownModifier: 0
+  manaModifier: 0
+  healthModifier: 0

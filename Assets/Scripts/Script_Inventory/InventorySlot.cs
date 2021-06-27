@@ -17,12 +17,13 @@ public class InventorySlot : MonoBehaviour,IPointerEnterHandler ,IPointerExitHan
         if (item != null)
         {
             pop_up.enabled = true;
-            pop_up.text = item.description;
+            pop_up.text = item.ToString();
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        
         pop_up.enabled = false;
         pop_up.text = "";
     }
@@ -39,12 +40,7 @@ public class InventorySlot : MonoBehaviour,IPointerEnterHandler ,IPointerExitHan
             pop_up.text = "";
         }
     }*/
-    private void OnMouseEnter()
-    {
-        Debug.Log("ta mere");
-    }
-
-
+    
     public void AddItem(Item newItem)
     {
         item = newItem;

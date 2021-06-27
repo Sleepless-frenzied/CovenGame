@@ -15,8 +15,13 @@ MonoBehaviour:
   name: Master Sword
   icon: {fileID: 21300000, guid: 3c91c788107323c4e93b0fac7e58b413, type: 3}
   isDefaultItem: 0
-  description: Sword
+  description: Ma grosse bite
+  Price: 100
   equipSlot: 2
   weapontype: 1
   armorModifier: 0
   damageModifier: 0
+  celerityModifier: 0
+  cooldownModifier: 0
+  manaModifier: 0
+  healthModifier: 0
