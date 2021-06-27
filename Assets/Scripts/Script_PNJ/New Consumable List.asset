@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ebd2ed8dcfce94a9e7cc25f3e4babf, type: 3}
+  m_Name: New Consumable List
+  m_EditorClassIdentifier: 
+  ListConsumables:
+  - {fileID: 11400000, guid: f0d0d611c87627e4fa0cfdb26afc93ad, type: 2}
+  - {fileID: 11400000, guid: 6bbee403be497f44db9ce143f82c6503, type: 2}
+  - {fileID: 11400000, guid: ce45776688cc59d4db92b0073612e21c, type: 2}
+  - {fileID: 11400000, guid: 7000110d53c9dfd4e81ea9290e9dbb6f, type: 2}

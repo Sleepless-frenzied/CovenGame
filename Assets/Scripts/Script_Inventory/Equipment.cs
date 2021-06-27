@@ -23,6 +23,11 @@ public class Equipment : Item
         Debug.Log("Equiped" + this);
         RemoveFromInventory();
     }
+
+    public override string ToString()
+    {
+        return base.ToString() +"Description: "+ description;
+    }
 }
 
 public enum WeaponType

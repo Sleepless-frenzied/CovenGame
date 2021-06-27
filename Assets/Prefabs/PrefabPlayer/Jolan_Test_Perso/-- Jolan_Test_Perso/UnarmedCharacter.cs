@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Realtime;
@@ -11,7 +12,9 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class UnarmedCharacter : MonoBehaviourPunCallbacks
 {
-    //movement attributes
+
+    [Header("movement attributes")]
+    [Space(10)]
     public CharacterController controller;
     public float speed = 0f;
     public Transform cam;
@@ -23,7 +26,8 @@ public class UnarmedCharacter : MonoBehaviourPunCallbacks
     public Camera camInteract;
     public Coven.PlayerStat playerStat;
 
-    //jump attributes and gravity
+    [Header("jump attributes and gravity")]
+    [Space(10)]
     public bool isGrounded;
     public float airSpeed = 3f;
     public Transform groundCheck;
@@ -33,7 +37,8 @@ public class UnarmedCharacter : MonoBehaviourPunCallbacks
     public float gravity = -9.81f;
     public float jumpHeight = 6f;
 
-    //fight attributes
+    [Header("fight attributes")]
+    [Space(10)]
     Animator animator;
     public bool isAttackPressed;
     bool lShiftPressed;
@@ -42,22 +47,31 @@ public class UnarmedCharacter : MonoBehaviourPunCallbacks
     public float nextAttackTime = 1;
     public float celerity = 1;
 
+    [Header("generic attributes")]
+    [Space(10)]
     //generic attributes
     public float manaRegen = 0.05f;
     public float healthRegen = 0;
     public float damagePower = 15;
     public float armorPower = 15;
     public float MaxHealth = 100;
-    public float MaxMana = 100;
     public float health = 100;
-    public float mana = 100;
     public Image healthBar;
+    
+    public float MaxMana = 100;
+    public float mana = 100;
     public Image manaBar;
+    
+    public int Coins = 100;
+    
+    public Status status = Status.Healthy;
+    public Buffs buff = Buffs.None;
+    
+    [Header("Inventory and other")]
+    [Space(10)]
     public GameObject equipement;
     public GameObject inventoryUI;
     public GameObject targetSpell;
-
-    public Status status = Status.Healthy;
 
     void Awake()
     {
@@ -217,5 +231,5 @@ public enum Status
     Healthy,
     Poisoned,
     Burned,
-    Stunned,
+    Stunned
 }
