@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Realtime;
+using Photon.Pun;
+using Random = UnityEngine.Random;
 
-public class UnarmedCharacter : MonoBehaviour
+[Serializable]
+public class UnarmedCharacter : MonoBehaviourPunCallbacks
 {
 
     [Header("movement attributes")]
@@ -19,7 +24,7 @@ public class UnarmedCharacter : MonoBehaviour
     //interact
     public LayerMask interactionMask;
     public Camera camInteract;
-    protected Coven.PlayerStat playerStat;
+    public Coven.PlayerStat playerStat;
 
     [Header("jump attributes and gravity")]
     [Space(10)]

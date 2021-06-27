@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections;
+using Photon.Pun;
 using Photon.Pun.Demo.SlotRacer;
 using UnityEngine;
 
-public class InventoryUI : MonoBehaviour
+public class InventoryUI : MonoBehaviourPunCallbacks
 {
     public Transform itemsParent;
-    private Inventory inventory;
+    public Inventory inventory;
 
     public GameObject Inventory_UI;
     
@@ -60,5 +61,10 @@ public class InventoryUI : MonoBehaviour
             }
         }
         
+    }
+
+    public Inventory GetInventory()
+    {
+        return inventory;
     }
 }

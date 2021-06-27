@@ -30,8 +30,6 @@ public class CameraFollow : MonoBehaviour
         Vector3 rot = transform.localRotation.eulerAngles;
         rotY = rot.y;
         rotX = rot.x;
-        
-
     }
 
     // Update is called once per frame

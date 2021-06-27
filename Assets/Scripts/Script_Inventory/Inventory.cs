@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+[Serializable]
+public class Inventory : MonoBehaviourPunCallbacks
 {
     #region Singleton
 
@@ -36,7 +38,7 @@ public class Inventory : MonoBehaviour
         {
             if (items.Count >= space)
             {
-                Debug.Log("");
+                Debug.Log("To many items");
                 return false;
             }
             
