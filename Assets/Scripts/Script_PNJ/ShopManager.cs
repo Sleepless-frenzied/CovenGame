@@ -42,6 +42,7 @@ public class ShopManager : MonoBehaviour
         Random rnd = new Random();
         inventory = Inventory.instance;
         player = GameObject.FindWithTag("Player").GetComponentInChildren<UnarmedCharacter>();
+        
         slots = GetComponentsInChildren<ShopSlot>();
         
         //Consumable tmpCons = GetCons();
@@ -49,7 +50,6 @@ public class ShopManager : MonoBehaviour
         //slots[0].AddItem(tmpCons,tmpQuanti);
         int tmpCons = rnd.Next(ConsumableList.ListConsumables.Length);
         Consumable SellCons = ConsumableList.ListConsumables[tmpCons];
-        Debug.Log(SellCons);
         slots[0].AddItem(SellCons,tmpQuanti);
         
         //tmpCons = GetCons();
@@ -57,7 +57,6 @@ public class ShopManager : MonoBehaviour
         //slots[1].AddItem(tmpCons,tmpQuanti);
         tmpCons = rnd.Next(ConsumableList.ListConsumables.Length);
         SellCons = ConsumableList.ListConsumables[tmpCons];
-        Debug.Log(SellCons);
         slots[1].AddItem(SellCons,tmpQuanti);
         
         //tmpCons = GetCons();
@@ -65,7 +64,6 @@ public class ShopManager : MonoBehaviour
         //slots[2].AddItem(tmpCons,tmpQuanti);
         tmpCons = rnd.Next(ConsumableList.ListConsumables.Length);
         SellCons = ConsumableList.ListConsumables[tmpCons];
-        Debug.Log(SellCons);
         slots[2].AddItem(SellCons,tmpQuanti);
         
         //tmpCons = GetCons();
@@ -73,7 +71,6 @@ public class ShopManager : MonoBehaviour
         //slots[3].AddItem(tmpCons,tmpQuanti);
         tmpCons = rnd.Next(ConsumableList.ListConsumables.Length);
         SellCons = ConsumableList.ListConsumables[tmpCons];
-        Debug.Log(SellCons);
         slots[3].AddItem(SellCons,tmpQuanti);
         
         Equipment eq = GetEq();
@@ -102,6 +99,9 @@ public class ShopManager : MonoBehaviour
         Debug.Log("one two three");
         return SellCons;
     }
+
+
+    
 
     private void Update()
     {

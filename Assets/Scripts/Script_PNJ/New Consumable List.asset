@@ -15,3 +15,5 @@ MonoBehaviour:
   ListConsumables:
   - {fileID: 11400000, guid: f0d0d611c87627e4fa0cfdb26afc93ad, type: 2}
   - {fileID: 11400000, guid: 6bbee403be497f44db9ce143f82c6503, type: 2}
+  - {fileID: 11400000, guid: ce45776688cc59d4db92b0073612e21c, type: 2}
+  - {fileID: 11400000, guid: 7000110d53c9dfd4e81ea9290e9dbb6f, type: 2}

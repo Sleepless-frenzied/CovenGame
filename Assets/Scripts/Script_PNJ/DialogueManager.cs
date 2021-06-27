@@ -141,18 +141,6 @@ public class DialogueManager : MonoBehaviour
         {
             No = true ;
             Yes = false;
-            /*if (_dialogue.occupation == Occupation.ShopKeeper)
-            {
-                string BuyOrNot = "Would you like to buy from " + _dialogue.name + "?"+ "\n" + " yes(y) or no(n)";
-                StopAllCoroutines();
-                StartCoroutine(TypeSentence(BuyOrNot));
-                StartCoroutine(test3());
-            }
-            else
-            {
-                EndDialogue();
-                return;
-            }*/
             switch (_dialogue.occupation)
             {
                 case Occupation.ShopKeeper:
@@ -187,7 +175,6 @@ public class DialogueManager : MonoBehaviour
                     EndDialogue();
                     break;
             }
-            
         }
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
@@ -234,8 +221,6 @@ public class DialogueManager : MonoBehaviour
               NoButton.interactable = false;
               YesButton.interactable = false;
           }
-        
-          
           return ;
     }
     
@@ -255,10 +240,8 @@ public class DialogueManager : MonoBehaviour
              default:
                  break;
          }
-         
          NoButton.interactable = false;
          YesButton.interactable = false;
-         
          return;
     }
     
@@ -266,6 +249,8 @@ public class DialogueManager : MonoBehaviour
     { 
         yield return new WaitForSeconds(15);
     }
+    
+    
     private IEnumerator Shop_YesOrNo()
     {
         NoButton.interactable = true;

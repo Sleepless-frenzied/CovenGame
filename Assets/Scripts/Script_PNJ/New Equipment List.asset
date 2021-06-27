@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: New Equipment List
   m_EditorClassIdentifier: 
   ListEquipments:
-  - {fileID: 11400000, guid: 8455c931b423d2a4996004885ed3eef2, type: 2}
-  - {fileID: 11400000, guid: 5f7337785d4a28e4db143b2a2b8ec726, type: 2}
+  - {fileID: 11400000, guid: aac3f86aedd41ee478bc48df8ec2a94f, type: 2}
+  - {fileID: 11400000, guid: 8393ce674b5671b459f1ff469b3f4b1c, type: 2}

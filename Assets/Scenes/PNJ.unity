@@ -1463,7 +1463,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &958625188
 Animator:
   serializedVersion: 3
@@ -2529,7 +2529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Quentin
-    occupation: 0
+    occupation: 2
     sentences:
     - Je me presente, je m'appelle Quentin
     - "Je voudrais bien r\xE9ussir ma vie, \xEAtre aime"
@@ -5751,22 +5751,26 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   gravity: -9.81
   jumpHeight: 6
-  Weapon: {fileID: 3228217861760779086}
   isAttackPressed: 0
   attackCooldown: 1
   nextAttackTime: 1
   celerity: 1
+  manaRegen: 0.05
+  healthRegen: 0
+  damagePower: 15
+  armorPower: 15
   MaxHealth: 100
   health: 100
   healthBar: {fileID: 1044073486342799083}
   MaxMana: 100
   mana: 100
   manaBar: {fileID: 1044073486476828217}
-  Coins: 400
+  Coins: 100
   status: 0
   buff: 0
   equipement: {fileID: 8470858914293943454}
   inventoryUI: {fileID: 8470858914684324128}
+  targetSpell: {fileID: 0}
 --- !u!4 &441507637259187787
 Transform:
   m_ObjectHideFlags: 0
@@ -6107,6 +6111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03bdf6cb4ff29aa44b8632cfdd9c5eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   image: {fileID: 1044073485399585124}
   allImage:
   - {fileID: 21300000, guid: eeff49e051316944dad15296f8e68e1b, type: 3}
@@ -6115,6 +6120,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 676104ad271b0c241bee12c8409a1304, type: 3}
   - {fileID: 21300000, guid: db65b0b4a42d84b4b8b3c20216e956b3, type: 3}
   spell: 0
+  special: 0
+  equipment: {fileID: 0}
 --- !u!222 &1044073485019223185
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6936,6 +6943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03bdf6cb4ff29aa44b8632cfdd9c5eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   image: {fileID: 1044073485197682661}
   allImage:
   - {fileID: 21300000, guid: 47684eba410fd484e912dee508527404, type: 3}
@@ -6944,6 +6952,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d8895a01c025a76418de5bf40b0cd906, type: 3}
   - {fileID: 21300000, guid: 490de5b67a54a914088038c8d2c8282f, type: 3}
   spell: 0
+  special: 0
+  equipment: {fileID: 0}
 --- !u!222 &1044073485869240534
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7033,6 +7043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03bdf6cb4ff29aa44b8632cfdd9c5eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   image: {fileID: 1044073486654261187}
   allImage:
   - {fileID: 21300000, guid: 05e2d6af00483bc42a42f768f4505213, type: 3}
@@ -7041,6 +7052,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7b34caca00a1514468b8d9cc005a43fc, type: 3}
   - {fileID: 21300000, guid: e99675219e623d44ab929ed2ec4406c2, type: 3}
   spell: 1
+  special: 0
+  equipment: {fileID: 0}
 --- !u!222 &1044073485942417476
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7712,6 +7725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9077ddb1f9dd6d43bcd2cece85a03f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   healthText: {fileID: 1044073486413815840}
   manaText: {fileID: 1044073486348649107}
 --- !u!224 &1044073486413815842
@@ -9116,6 +9130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e4f67c069a411468016ef7df82b439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipment: {fileID: 0}
+  allWeapons: []
 --- !u!4 &1782116480382009159
 Transform:
   m_ObjectHideFlags: 0
@@ -18476,6 +18492,7 @@ MonoBehaviour:
   player: {fileID: 0}
   itemsParent: {fileID: 0}
   currentEquipment: []
+  changeWeapon: 0
 --- !u!114 &4094892979701284172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20061,11 +20078,14 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   gravity: -9.81
   jumpHeight: 6
-  Weapon: {fileID: 7928366431201162266}
   isAttackPressed: 0
   attackCooldown: 1
   nextAttackTime: 1
   celerity: 1
+  manaRegen: 0.05
+  healthRegen: 0
+  damagePower: 15
+  armorPower: 15
   MaxHealth: 100
   health: 100
   healthBar: {fileID: 0}
@@ -20077,6 +20097,7 @@ MonoBehaviour:
   buff: 0
   equipement: {fileID: 4094892979701284161}
   inventoryUI: {fileID: 0}
+  targetSpell: {fileID: 0}
 --- !u!1 &5113866038838499718
 GameObject:
   m_ObjectHideFlags: 0
@@ -20911,6 +20932,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e4f67c069a411468016ef7df82b439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipment: {fileID: 0}
+  allWeapons: []
 --- !u!33 &6516850733601474611
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -23378,6 +23401,7 @@ MonoBehaviour:
   player: {fileID: 0}
   itemsParent: {fileID: 8470858914251402067}
   currentEquipment: []
+  changeWeapon: 0
 --- !u!114 &8470858914293943452
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -57,7 +57,7 @@ public class UnarmedCharacter : MonoBehaviour
     public float mana = 100;
     public Image manaBar;
     
-    public int Coins;
+    public int Coins = 100;
     
     public Status status = Status.Healthy;
     public Buffs buff = Buffs.None;
