@@ -21,25 +21,20 @@ public class EquipmentManager : MonoBehaviour
 
 
 
-    public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
+    /*public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
 
-    public OnEquipmentChanged onEquipmentChanged;
+    public OnEquipmentChanged onEquipmentChanged;*/
 
 
     //modifiers
     public UnarmedCharacter player;
-    /*private float celerity = 0;
-    private float cooldown = 0;
-    private float maxHealth = 0;
-    private float maxMana = 0;*/
 
     public Transform itemsParent;
     private Inventory inventory;
     public Equipment[] currentEquipment;
     private EquipmentSlot[] slots;
+    public bool changeWeapon;
     
-    
-
     
 
     private void Start()
@@ -58,17 +53,26 @@ public class EquipmentManager : MonoBehaviour
         if (currentEquipment[slotIndex] != null)
         {
             oldItem = currentEquipment[slotIndex];
+            ChangeStat(oldItem,false);
             inventory.Add(oldItem);
+            Debug.Log("changé entre deux");
         }
         
-        if (onEquipmentChanged != null)
+        /*if (onEquipmentChanged != null)
         {
             onEquipmentChanged.Invoke(newItem,oldItem);
-        }
+            ChangeStat(newItem,true);
+            ChangeStat(oldItem,false);
+            
+        }*/
         
+        if (slotIndex == 2)
+        {
+            changeWeapon = true;
+        }
         ChangeStat(newItem,true);
+        Debug.Log("changé seul");
         currentEquipment[slotIndex] = newItem;
-        Debug.Log(newItem.celerityModifier + "" + newItem.cooldownModifier + "" + newItem.healthModifier + "" + newItem.manaModifier);
         slots[slotIndex].AddItem(newItem);
         
     }
@@ -78,14 +82,18 @@ public class EquipmentManager : MonoBehaviour
         if (currentEquipment[slotIndex] != null)
         {
             ChangeStat(currentEquipment[slotIndex], false);
+            if (slotIndex == 2)
+            {
+                changeWeapon = true;
+            }
             
             Equipment oldItem = currentEquipment[slotIndex];
             inventory.Add(oldItem);
 
-            if (onEquipmentChanged != null)
+            /*if (onEquipmentChanged != null)
             {
                 onEquipmentChanged.Invoke(null,oldItem);
-            }
+            }*/
             currentEquipment[slotIndex] = null;
         }
         
@@ -114,6 +122,10 @@ public class EquipmentManager : MonoBehaviour
             player.attackCooldown -= equipment.cooldownModifier;
             player.MaxHealth += equipment.healthModifier;
             player.MaxMana += equipment.manaModifier;
+            player.manaRegen += equipment.manaRegenModifier;
+            player.healthRegen += equipment.healthRegenModifier;
+            player.damagePower += equipment.damageModifier;
+            player.armorPower += equipment.armorModifier;
         }
         else
         {
@@ -121,12 +133,16 @@ public class EquipmentManager : MonoBehaviour
             player.attackCooldown += equipment.cooldownModifier;
             player.MaxHealth -= equipment.healthModifier;
             player.MaxMana -= equipment.manaModifier;
+            player.manaRegen -= equipment.manaRegenModifier;
+            player.healthRegen -= equipment.healthRegenModifier;
+            player.damagePower -= equipment.damageModifier;
+            player.armorPower -= equipment.armorModifier;
         }
     }
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.U) && transform.GetChild(0).gameObject.activeSelf)
         {
             UnEquipAll();
         }

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5da1a272f1b79942b78c8ccc2e3b072, type: 3}
+  m_Name: LaCPire
+  m_EditorClassIdentifier: 
+  name: LaCPire
+  icon: {fileID: 21300000, guid: 7250044204fe1ee459fac663e7cdb93a, type: 3}
+  isDefaultItem: 0
+  description: Damage +80, ManaRegen -0.25
+  idWeapon: 10
+  equipSlot: 2
+  weapontype: 2
+  armorModifier: 0
+  damageModifier: 80
+  celerityModifier: 0
+  cooldownModifier: 0
+  manaModifier: 0
+  healthModifier: 0
+  manaRegenModifier: -0.25
+  healthRegenModifier: 0

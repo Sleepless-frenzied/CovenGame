@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d164bd1fff90c489317b564d1a6a3b, type: 3}
   m_Name: Low Heal Potion
   m_EditorClassIdentifier: 
-  name: Heal Potion
+  name: Low Heal Potion
   icon: {fileID: 21300000, guid: e52ea25af699fd445b7046374f81a5b9, type: 3}
   isDefaultItem: 0
   description: Restore  25% HP
   effect: 0
   grade: 0
+  buff: 0

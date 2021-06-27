@@ -15,6 +15,7 @@ public class UnarmedCharacter : MonoBehaviour
     public Transform cam;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
+
     //interact
     public LayerMask interactionMask;
     public Camera camInteract;
@@ -33,7 +34,6 @@ public class UnarmedCharacter : MonoBehaviour
 
     [Header("fight attributes")]
     [Space(10)]
-    public GameObject Weapon;
     Animator animator;
     public bool isAttackPressed;
     bool lShiftPressed;
@@ -44,6 +44,11 @@ public class UnarmedCharacter : MonoBehaviour
 
     [Header("generic attributes")]
     [Space(10)]
+    //generic attributes
+    public float manaRegen = 0.05f;
+    public float healthRegen = 0;
+    public float damagePower = 15;
+    public float armorPower = 15;
     public float MaxHealth = 100;
     public float health = 100;
     public Image healthBar;
@@ -61,6 +66,7 @@ public class UnarmedCharacter : MonoBehaviour
     [Space(10)]
     public GameObject equipement;
     public GameObject inventoryUI;
+    public GameObject targetSpell;
 
     void Awake()
     {
@@ -72,12 +78,23 @@ public class UnarmedCharacter : MonoBehaviour
     //[PunRPC]
     void Update()
     {
+        //If is dead;
+        if (health <= 0)
+        {
+            animator.SetTrigger("Dead");
+            return;
+        }
         
-        //PV and Mana update
+        //PV and Mana update (and Cooldown)
         healthBar.fillAmount = health / MaxHealth;
         manaBar.fillAmount = mana / MaxMana;
+        mana += manaRegen;
+        health += healthRegen;
         health = health > MaxHealth ? MaxHealth : health;
         mana = mana > MaxMana ? MaxMana : mana;
+        health = health <= 0 ? 0 : health;
+        mana = mana <= 0 ? 0 : mana;
+        attackCooldown = attackCooldown <= 0 ? 0.1f : attackCooldown;
              
         //Is grounded ??? and gravity
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -93,11 +110,6 @@ public class UnarmedCharacter : MonoBehaviour
         else
             animator.SetBool("isInTheAir", true);
         
-        //show the weapon
-        if (animator.GetInteger("Weapon") == 1)
-            Weapon.SetActive(true);
-        else
-            Weapon.SetActive(false);
         
         //Change Weapon
         if (equipement.GetComponent<EquipmentManager>().currentEquipment[2] == null)
@@ -106,10 +118,10 @@ public class UnarmedCharacter : MonoBehaviour
             animator.SetInteger("Weapon",(int) equipement.GetComponent<EquipmentManager>().currentEquipment[2].weapontype);
         
         
-        //If in the inventory, you cannot do anything
+        //If in the inventory, you cannot do anything,
         //
         //
-        if (inventoryUI.activeSelf)
+        if (inventoryUI.activeSelf || animator.GetBool("isSpecialSword"))
         {
             animator.SetBool("isRunning", false);
             animator.SetBool("isAttacking",false);
@@ -176,9 +188,9 @@ public class UnarmedCharacter : MonoBehaviour
 
         if (isAttackPressed && isGrounded && Time.time > nextAttackTime)
         {
-            playerStat.SetIsHiting(true);
+            //playerStat.SetIsHiting(true);
             animator.SetInteger("Attack_NB", Random.Range(0, 6));
-            //animator.SetTrigger("Attack");
+            
             animator.SetBool("isAttacking",true);
             nextAttackTime = Time.time + attackCooldown;
         }
@@ -187,6 +199,8 @@ public class UnarmedCharacter : MonoBehaviour
             animator.SetBool("isAttacking",false);
         }
 
+        
+        
 
         //ToInteractWith object
         if (Input.GetKeyDown(KeyCode.E))

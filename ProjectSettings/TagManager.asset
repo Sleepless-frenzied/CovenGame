@@ -10,6 +10,7 @@ TagManager:
   - canJumpAbove
   - dead
   - Spawn
+  - mob
   layers:
   - Default
   - TransparentFX
