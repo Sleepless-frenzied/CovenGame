@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using Coven;
 using UnityEngine;
 
@@ -20,8 +21,31 @@ using UnityEngine;
             ConsumableManager.instance.What(this);
             RemoveFromInventory();
         }
-    
-        
+
+        public override string ToString()
+        {
+            string eff = "";
+            switch (effect)
+            {
+                case Effect.Potion:
+                    eff = "Potion";
+                    break;
+                case Effect.Antidote:
+                    eff = "Antidote";
+                    break;
+                case Effect.Revive:
+                    eff = "Revive Potion";
+                    break;
+                case Effect.Buff:
+                    eff = "Buff Potion";
+                    break;
+            }
+
+            return base.ToString() + "Effect: " + eff + "\n" + description;
+            
+            
+            
+        }
     }
     
     

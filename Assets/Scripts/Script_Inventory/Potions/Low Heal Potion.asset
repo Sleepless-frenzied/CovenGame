@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: e52ea25af699fd445b7046374f81a5b9, type: 3}
   isDefaultItem: 0
   description: Restore  25% HP
+  Price: 1
   effect: 0
   grade: 0
   buff: 0

@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   isDefaultItem: 0
   description: 
+  Price: 1
   effect: 0
   grade: 1
   buff: 0
