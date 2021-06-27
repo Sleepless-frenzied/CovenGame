@@ -75,12 +75,16 @@ public class UnarmedCharacter : MonoBehaviourPunCallbacks
 
     void Awake()
     {
+        if (!photonView.IsMine)
+        {
+            camInteract.gameObject.SetActive(false);
+            enabled = false;
+        }
         animator = GetComponent<Animator>();
         animator.SetBool("Acting", false);
         playerStat = gameObject.GetComponent<Coven.PlayerStat>();
     }
 
-    //[PunRPC]
     void Update()
     {
         //If is dead;
