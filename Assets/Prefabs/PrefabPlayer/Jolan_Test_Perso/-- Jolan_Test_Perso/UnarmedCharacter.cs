@@ -77,6 +77,7 @@ public class UnarmedCharacter : MonoBehaviourPunCallbacks
     {
         if (!photonView.IsMine)
         {
+            animator.gameObject.SetActive(false);
             camInteract.gameObject.SetActive(false);
             enabled = false;
         }

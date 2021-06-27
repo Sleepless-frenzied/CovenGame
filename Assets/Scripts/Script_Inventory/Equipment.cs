@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="New Equipment",menuName = "Inventory/Equipment")]
+[Serializable]
 public class Equipment : Item
 {
+    [SerializeField] private PhotonView _view;
     public int idWeapon;
     public Equipments equipSlot;
     public WeaponType weapontype = WeaponType.Unarmed;
@@ -18,6 +22,11 @@ public class Equipment : Item
     public float healthRegenModifier;
     public override void Use()
     {
+        if (!_view.IsMine)
+        {
+            return;
+        }
+            
         base.Use();
         EquipmentManager.instance.Equip(this);
         Debug.Log("Equiped" + this);

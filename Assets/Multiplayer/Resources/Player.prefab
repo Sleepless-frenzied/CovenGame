@@ -4075,6 +4075,7 @@ MonoBehaviour:
   icon: {fileID: 3140026344393872748}
   removeButton: {fileID: 3140026344073571535}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3140026344073571529
 GameObject:
   m_ObjectHideFlags: 0
@@ -4599,6 +4600,7 @@ MonoBehaviour:
   icon: {fileID: 3324325186069239004}
   removeButton: {fileID: 3324325186255334783}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325184905254299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4782,6 +4784,7 @@ MonoBehaviour:
   icon: {fileID: 3324325185970075168}
   removeButton: {fileID: 3324325186421510019}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325184978845782
 GameObject:
   m_ObjectHideFlags: 0
@@ -6093,6 +6096,7 @@ MonoBehaviour:
   icon: {fileID: 3324325186325089044}
   removeButton: {fileID: 3324325186007872183}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325185180584238
 GameObject:
   m_ObjectHideFlags: 0
@@ -6424,6 +6428,7 @@ MonoBehaviour:
   icon: {fileID: 3324325186406865312}
   removeButton: {fileID: 3324325185917739011}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325185226997959
 GameObject:
   m_ObjectHideFlags: 0
@@ -6606,6 +6611,7 @@ MonoBehaviour:
   icon: {fileID: 3324325186303630005}
   removeButton: {fileID: 3324325186088182550}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325185327156927
 GameObject:
   m_ObjectHideFlags: 0
@@ -6659,6 +6665,7 @@ MonoBehaviour:
   icon: {fileID: 3324325186292977011}
   removeButton: {fileID: 3324325186106832080}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325185336738574
 GameObject:
   m_ObjectHideFlags: 0
@@ -6712,6 +6719,7 @@ MonoBehaviour:
   icon: {fileID: 3324325186283389122}
   removeButton: {fileID: 3324325186100459873}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325185358377253
 GameObject:
   m_ObjectHideFlags: 0
@@ -7024,6 +7032,7 @@ MonoBehaviour:
   icon: {fileID: 3324325186252021465}
   removeButton: {fileID: 3324325186064820090}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325185396853377
 GameObject:
   m_ObjectHideFlags: 0
@@ -7077,6 +7086,7 @@ MonoBehaviour:
   icon: {fileID: 3324325186628028749}
   removeButton: {fileID: 3324325186847748334}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325185418775915
 GameObject:
   m_ObjectHideFlags: 0
@@ -8201,6 +8211,7 @@ MonoBehaviour:
   icon: {fileID: 3324325185011562850}
   removeButton: {fileID: 3324325185226997953}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325185970075170
 GameObject:
   m_ObjectHideFlags: 0
@@ -8328,6 +8339,7 @@ MonoBehaviour:
   icon: {fileID: 3324325185103351533}
   removeButton: {fileID: 3324325185151104846}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325186007872177
 GameObject:
   m_ObjectHideFlags: 0
@@ -8973,6 +8985,7 @@ MonoBehaviour:
   icon: {fileID: 3324325184869173376}
   removeButton: {fileID: 3324325185358377251}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325186088182544
 GameObject:
   m_ObjectHideFlags: 0
@@ -10302,6 +10315,7 @@ MonoBehaviour:
   icon: {fileID: 3324325185106718700}
   removeButton: {fileID: 3324325185053726287}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325186406865314
 GameObject:
   m_ObjectHideFlags: 0
@@ -10429,6 +10443,7 @@ MonoBehaviour:
   icon: {fileID: 3324325185200513166}
   removeButton: {fileID: 3324325184984996141}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325186421510021
 GameObject:
   m_ObjectHideFlags: 0
@@ -10741,6 +10756,7 @@ MonoBehaviour:
   icon: {fileID: 3324325185180584236}
   removeButton: {fileID: 3324325184998633615}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325186497342017
 GameObject:
   m_ObjectHideFlags: 0
@@ -10924,6 +10940,7 @@ MonoBehaviour:
   icon: {fileID: 3324325185970075168}
   removeButton: {fileID: 3324325185697271346}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325186552259201
 GameObject:
   m_ObjectHideFlags: 0
@@ -11311,6 +11328,7 @@ MonoBehaviour:
   icon: {fileID: 3324325185820556302}
   removeButton: {fileID: 3324325185500169645}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325186735081639
 GameObject:
   m_ObjectHideFlags: 0
@@ -11364,6 +11382,7 @@ MonoBehaviour:
   icon: {fileID: 3324325185818282859}
   removeButton: {fileID: 3324325185502180040}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325186757814558
 GameObject:
   m_ObjectHideFlags: 0
@@ -11547,6 +11566,7 @@ MonoBehaviour:
   icon: {fileID: 3324325185907979470}
   removeButton: {fileID: 3324325185418775917}
   pop_up: {fileID: 8041113630944705933}
+  _view: {fileID: 6015161714255878758}
 --- !u!1 &3324325186847748328
 GameObject:
   m_ObjectHideFlags: 0
@@ -16847,7 +16867,7 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: Jump
   - Type: 3
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: Spell
   - Type: 4
     SynchronizeType: 1
@@ -16856,13 +16876,13 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: isAttacking
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: isSpell
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: isSpecial
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: isSpecialSword
   m_SynchronizeLayers:
   - SynchronizeType: 1

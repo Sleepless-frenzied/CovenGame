@@ -1,21 +1,30 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
-public class CastSpell : MonoBehaviour
+public class CastSpell : MonoBehaviourPunCallbacks
 {
     public GameObject[] spellAnim;
     private UnarmedCharacter player;
 
     private void Start()
     {
+        if (!photonView.IsMine)
+        {
+            enabled = false;
+        }
         player = gameObject.GetComponent<UnarmedCharacter>();
     }
     
 
     public void WhatSpell(int spellNb, float manaCost)
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         switch (spellNb)
         {
             case 0:
