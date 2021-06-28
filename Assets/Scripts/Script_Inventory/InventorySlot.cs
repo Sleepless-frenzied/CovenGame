@@ -1,4 +1,5 @@
 ﻿using System;
+using Photon.Pun;
 using System.Diagnostics;
 using TMPro;
 using UnityEditor.U2D;
@@ -8,7 +9,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
-public class InventorySlot : MonoBehaviour,IPointerEnterHandler ,IPointerExitHandler
+public class InventorySlot : MonoBehaviourPunCallbacks,IPointerEnterHandler ,IPointerExitHandler
 {
     public Image icon;
     public Button removeButton;
@@ -16,6 +17,7 @@ public class InventorySlot : MonoBehaviour,IPointerEnterHandler ,IPointerExitHan
     public TMP_Text pop_up;
     private Item item;
 
+    [SerializeField] private PhotonView _view;
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (item != null)
@@ -98,6 +100,10 @@ public class InventorySlot : MonoBehaviour,IPointerEnterHandler ,IPointerExitHan
 
     public void UseItem()
     {
+        if (!_view.IsMine)
+        {
+            return;
+        }
         if (item != null)
         {
             item.Use();

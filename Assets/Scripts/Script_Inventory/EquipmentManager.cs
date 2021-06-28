@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using Photon.Pun.Demo.SlotRacer;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class EquipmentManager : MonoBehaviour
+public class EquipmentManager : MonoBehaviourPunCallbacks
 {
     #region Singleton
 
@@ -44,6 +45,10 @@ public class EquipmentManager : MonoBehaviour
 
     private void Start()
     {
+        if (!photonView.IsMine)
+        {
+            enabled = false;
+        }   
         inventory = Inventory.instance;
         //inventory.OnItemChangedCallback += ;
         int numSlots = System.Enum.GetNames(typeof(Equipments)).Length;
@@ -53,6 +58,10 @@ public class EquipmentManager : MonoBehaviour
     
     public void Equip(Equipment newItem)
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         int slotIndex = (int) newItem.equipSlot;
         Equipment oldItem = null;
         if (currentEquipment[slotIndex] != null)
@@ -84,6 +93,10 @@ public class EquipmentManager : MonoBehaviour
 
     public void UnEquip(int slotIndex)
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         if (currentEquipment[slotIndex] != null)
         {
             ChangeStat(currentEquipment[slotIndex], false);
@@ -107,6 +120,10 @@ public class EquipmentManager : MonoBehaviour
     }
     public void UnEquipAll()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         for (int i = 0; i < currentEquipment.Length; i++)
         {
             UnEquip(i);
@@ -121,6 +138,10 @@ public class EquipmentManager : MonoBehaviour
 
     public void ChangeStat(Equipment equipment, bool added)
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         if (added)
         {
             player.celerity += equipment.celerityModifier;

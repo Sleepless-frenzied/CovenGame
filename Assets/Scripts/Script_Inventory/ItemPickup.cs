@@ -1,5 +1,4 @@
-﻿using Photon.Pun.Simple.Assists;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ItemPickup : Interactable
 {

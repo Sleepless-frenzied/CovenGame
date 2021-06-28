@@ -76,7 +76,8 @@ public class CreateRoom : MonoBehaviourPunCallbacks
             PhotonNetwork.CurrentRoom.IsOpen = false;
             PhotonNetwork.CurrentRoom.IsVisible = false;
             Debug.Log("Starting game ...");
-            PhotonNetwork.LoadLevel("Level_1");
+            PhotonNetwork.AutomaticallySyncScene = true;
+            PhotonNetwork.LoadLevel("TUTORIAL_SCENE");
         }
     }
     
@@ -85,7 +86,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         PhotonNetwork.OfflineMode = true;
         options.MaxPlayers = 1;
         PhotonNetwork.JoinOrCreateRoom("solo",options , TypedLobby.Default);
-        SceneManager.LoadSceneAsync("Level_1");
+        SceneManager.LoadSceneAsync("TUTORIAL_SCENE");
     }
     
 
